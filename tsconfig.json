@@ -1,39 +1,34 @@
 {
   "compilerOptions": {
-    //
+    // Директория, в которую компилятор будет помещать JS bundle
     "outDir": "./dist/",
-    // Подсвечивает все места где не указан тип
-    // Однако это не означает, что теперь вовсе нельзя использовать any.
-    // Это означает лишь, что в подобных ситуация разработчик должен явно писать any,
+    // TSC будеть подсвечивать неявное присваивание any, обойти можно присвоив явно
     "noImplicitAny": true,
+    // Задаём разрешённые импорты (lazy - появился позже ES6, поэтому пишем ESNext)
     "module": "ESNext",
     // В какую спецификацию компилируем: для поддержки большинства браузеров
     "target": "es5",
+    // Разрешить JSX (react - ужно импортить в файл, react-jsx - можно не импортить react в файлы)
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
+    // Стратегия для импорта модулей (При этом classic в 99% не будет использоваться, так как это legacy.)
     "moduleResolution": "node",
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      // Начало пути для абсолютного импорта
+      "*": [
+        "./src/*"
+      ]
     },
-    // esModuleInterop позволяет работать с пакетами, которые используют
-    // common js как с обычными пакета с помощью import (require() module.export) = common js
-    // import Moment from 'moment';
-    // без флага esModuleInterop результат undefined
-    // console.log(Moment);
-    // c флагом результат [object Object]
-    // console.log(Moment);
+    // Позволяет работать с пакетами, которые используют common js
     "esModuleInterop": true,
-    // Если какая-либо библиотека не имеет default import,
-    // лоадеры вроде ts-loader или babel-loader автоматически создают их
-    // вместо такого импорта
-    // import * as React from 'react';
-    // можно писать такой
-    // import React from 'react';
+    // Если какая-либо библиотека не имеет default import, автоматически создавать их
     "allowSyntheticDefaultImports": true
   },
+  // Если какая-лиьо библиотека не может работать с современными модулями,
+  // ей можно присвоить отдельные compilerOptions
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

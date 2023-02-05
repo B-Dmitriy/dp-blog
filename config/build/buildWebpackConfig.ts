@@ -14,6 +14,7 @@ export function buildWebpackConfig(options: BuildOptionsTypes): webpack.Configur
 		output: {
 			filename: '[name][contenthash].js',
 			path: paths.output,
+			// Очищать папку с билом перед новой сборкой
 			clean: true,
 		},
 		plugins: buildWebpackPlugins(options),

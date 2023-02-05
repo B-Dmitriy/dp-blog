@@ -7,6 +7,7 @@ export function buildWebpackDevServer(options: BuildOptionsTypes): DevServerConf
 	return {
 		port,
 		open: true,
+		// Флаг исправляет ошибку 404 при входе на не корневой путь SPA === "/"
 		historyApiFallback: true,
 	}
 }

@@ -5,7 +5,8 @@ import type {BuildOptionsTypes} from "./types/build.types";
 export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRule[] {
 	const {isDev} = options;
 
-	// Если не используем тайпскрипт - нужен babel-loader
+	// Если не используем тайпскрипт - нужен babel-loader, с пресетами
+	// @babel-env, @babel-react, @babel-typescript
 	const tsLoader = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
@@ -15,10 +16,10 @@ export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRu
 	const styleLoader = {
 		test: /\.s[ac]ss$/i,
 		use: [
-			// Creates `style` nodes from JS strings
-			// "style-loader",
+			// "style-loader" - помещает css в JS,
+			// MiniCssExtractPlugin - позволяет задать пути и настройки для css файлов
 			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-			// Translates CSS into CommonJS
+			// Позволяет использовать импорты для css, и настроить работу с модулями и css классами
 			{
 				loader: "css-loader",
 				options: {
@@ -30,7 +31,7 @@ export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRu
 					},
 				}
 			},
-			// Compiles Sass to CSS
+			// Компилирует sass в css
 			"sass-loader",
 		],
 	}

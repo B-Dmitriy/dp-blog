@@ -9,10 +9,13 @@ export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.Webpack
 	return [
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
+			// Путь к HTML шаблону SPA (index.html)
 			template: paths.html
 		}),
 		new MiniCssExtractPlugin({
+			// Шаблон для имени выходного файла
 			filename: 'css/[name].[contenthash:8].css',
+			// Шаблон для имени выходных чанков
 			chunkFilename: 'css/[name].[contenthash:8].css'
 		})
 	]
