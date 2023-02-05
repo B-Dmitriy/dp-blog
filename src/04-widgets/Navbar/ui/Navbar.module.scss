@@ -1,0 +1,19 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  height: var(--navbar-height);
+  background-color: var(--bg-color-navbar);
+
+  .links {
+    margin-left: auto;
+    
+    a {
+      margin-left: 12px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
