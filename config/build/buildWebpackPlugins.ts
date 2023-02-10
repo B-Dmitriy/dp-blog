@@ -4,7 +4,7 @@ import MiniCssExtractPlugin  from "mini-css-extract-plugin";
 import type { BuildOptionsTypes } from "./types/build.types";
 
 export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.WebpackPluginInstance[] {
-	const {paths} = options;
+	const {paths, isDev} = options;
 
 	return [
 		new webpack.ProgressPlugin(),
@@ -17,6 +17,9 @@ export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.Webpack
 			filename: 'css/[name].[contenthash:8].css',
 			// Шаблон для имени выходных чанков
 			chunkFilename: 'css/[name].[contenthash:8].css'
+		}),
+		new webpack.DefinePlugin({
+			IS_DEV: isDev,
 		})
 	]
 }
