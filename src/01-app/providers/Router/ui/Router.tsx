@@ -10,7 +10,7 @@ export const Router = () => {
                     <Route
                         key={route.path}
                         path={route.path}
-                        element={route.element}
+                        element={<div className="page-wrapper">{route.element}</div>}
                     />
                 ))}
             </Routes>
