@@ -1,7 +1,7 @@
+import { classNames } from '07-shared/lib/classNames/classNames';
+import { Link, LinkProps } from 'react-router-dom';
+import { FC } from 'react';
 import classes from './AppLink.module.scss';
-import {classNames} from "07-shared/lib/classNames/classNames";
-import {Link, LinkProps} from "react-router-dom";
-import {FC} from "react";
 
 export type AppLinkTheme = 'primary' | 'secondary';
 

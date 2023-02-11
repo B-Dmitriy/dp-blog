@@ -9,13 +9,14 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng: 'ru', // Язык по умолчанию. Если указать массив ['en', 'ru'] прилетят чанки сразу для 2 языков
+    // Язык по умолчанию. Если указать массив ['en', 'ru'] прилетят чанки сразу для 2 языков
+    // false - не подгружать язык по умолчанию, только активный
+        fallbackLng: false,
         debug: IS_DEV,
 
         interpolation: {
             escapeValue: false,
-        }
+        },
     });
-
 
 export default i18n;
