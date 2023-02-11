@@ -1,0 +1,37 @@
+.Switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    border: 1px solid var(--black);
+    background-color: var(--gray-light);
+    border-radius: 16px;
+    cursor: pointer;
+
+    .switcher {
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        background-color: #444;
+        transition: 0.2s;
+    }
+
+    &.dark {
+        .switcher {
+            left: 24px;
+            background-color: var(--primary-color);
+        }
+    }
+
+    &.light {
+        .switcher {
+            left: 0;
+            color: #5f8cee;
+        }
+    }
+
+    &:hover {
+        border-color: var(--secondary-color);
+    }
+}

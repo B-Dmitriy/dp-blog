@@ -3,13 +3,28 @@ import classes from './Switch.module.scss';
 
 interface SwitchProps {
     className?: string;
+    isActive: boolean;
+    changeIsActiveStatus: () => void;
 }
 
-export const Switch = ({ className }: SwitchProps) => {
-    console.log(1);
+export const Switch = ({
+    className,
+    isActive,
+    changeIsActiveStatus,
+}: SwitchProps) => {
+    const onClick = () => {
+        changeIsActiveStatus();
+    };
     return (
-        <div className={classNames(classes.Switch, {}, [className])}>
-            <p />
-        </div>
+        <button
+            type="button"
+            className={classNames(classes.Switch, {
+                [classes.light]: isActive,
+                [classes.dark]: !isActive,
+            }, [className])}
+            onClick={onClick}
+        >
+            <div className={classes.switcher} />
+        </button>
     );
 };

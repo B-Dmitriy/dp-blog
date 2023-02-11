@@ -5,6 +5,10 @@
     height: var(--navbar-height);
     background-color: var(--bg-color-navbar);
 
+    .switchers {
+        display: flex;
+    }
+
     .links {
         margin-left: auto;
 
