@@ -1,0 +1,32 @@
+.Switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    border: 1px solid var(--black);
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    cursor: pointer;
+
+    .switcher {
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        position: absolute;
+        background-color: #444;
+        transition: 0.2s;
+
+        &.dark {
+            left: 24px;
+        }
+
+        &.light {
+            left: 0;
+        }
+    }
+
+    &:active {
+        .switcher {
+            background-color: var(--gray-light);
+        }
+    }
+}

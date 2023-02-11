@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-function AboutPage() {
+const AboutPage = () => {
     const { t } = useTranslation('about');
 
     return (
@@ -9,6 +9,6 @@ function AboutPage() {
             {t('about_us')}
         </div>
     );
-}
+};
 
 export default AboutPage;

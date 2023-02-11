@@ -8,12 +8,4 @@
     &.collapsed {
         width: var(--sidebar-width-collapsed);
     }
-
-    .switchers {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
-    }
 }
