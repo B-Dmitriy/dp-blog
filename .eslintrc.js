@@ -5,6 +5,7 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
+        // 'plugin:i18next/recommended',
         'airbnb',
     ],
     parser: '@typescript-eslint/parser',
@@ -16,6 +17,8 @@ module.exports = {
         sourceType: 'module',
     },
     plugins: [
+        // 'i18next', - eslint-plugin-i18next удалил,
+        // так как все атрибуты в игнор писать вручную, того не стоит
         'react',
         '@typescript-eslint',
     ],
@@ -36,6 +39,11 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        // 'i18next/no-literal-string': ['error', {
+        //     markupOnly: true,
+        //     //Перечисляем ВСЕ!!! атрибуты которые будем игнорировать
+        //     ignoreAttribute: ['type', 'theme', '...'],
+        // }],
     },
     globals: {
         IS_DEV: true,
