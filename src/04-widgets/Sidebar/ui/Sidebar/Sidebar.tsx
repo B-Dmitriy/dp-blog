@@ -8,7 +8,7 @@ interface SidebarProps {
     className?: string;
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const toggleCollapsed = () => setCollapsed((prev) => !prev);
@@ -25,4 +25,4 @@ export function Sidebar({ className }: SidebarProps) {
             </div>
         </div>
     );
-}
+};
