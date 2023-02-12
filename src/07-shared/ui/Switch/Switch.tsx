@@ -19,8 +19,8 @@ export const Switch = ({
         <button
             type="button"
             className={classNames(classes.Switch, {
-                [classes.light]: isActive,
-                [classes.dark]: !isActive,
+                [classes.active]: isActive,
+                [classes.inactive]: !isActive,
             }, [className])}
             onClick={onClick}
         >

@@ -3,7 +3,9 @@
     align-items: center;
     padding: 20px;
     height: var(--navbar-height);
-    background-color: var(--bg-color-navbar);
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--divider);
+    transition: background var(--transition-time-main);
 
     .switchers {
         display: flex;

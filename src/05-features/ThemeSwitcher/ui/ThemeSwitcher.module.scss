@@ -1,22 +1,26 @@
 .Switch {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     width: 48px;
-    height: 24px;
-    border: 1px solid var(--black);
-    background-color: var(--bg-color);
+    height: 22px;
+    border: 1px solid var(--divider-light);
+    background-color: var(--bg-color-mute);
     border-radius: 16px;
+    transition: var(--transition-time-main);
     cursor: pointer;
 
     .switcher {
-        height: 22px;
-        width: 22px;
+        height: 20px;
+        width: 20px;
         border-radius: 50%;
         position: absolute;
-        background-color: #444;
+        background-color: var(--bg-color);
         transition: 0.2s;
 
         &.dark {
-            left: 24px;
+            left: 26px;
         }
 
         &.light {
@@ -26,7 +30,11 @@
 
     &:active {
         .switcher {
-            background-color: var(--gray-light);
+            background-color: var(--gray);
         }
+    }
+
+    &:hover {
+        border-color: var(--divider-hover);
     }
 }
