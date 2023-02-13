@@ -2,6 +2,8 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        // Позволяет видеть типы и переменные jest (describe, test и т д)
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',

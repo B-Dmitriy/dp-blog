@@ -5,6 +5,19 @@ import type { BuildOptionsTypes } from './types/build.types';
 export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRule[] {
     const { isDev } = options;
 
+    // Устанавливаем потому, что Jest не может работать с TS без него,
+    // Обязательно должен быть перед ts-loader, иначе сборка упадёт
+    const babelLoader = {
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+            },
+        },
+    };
+
     // Если не используем тайпскрипт - нужен babel-loader, с пресетами
     // @babel-env, @babel-react, @babel-typescript
     const tsLoader = {
@@ -46,5 +59,6 @@ export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRu
         ],
     };
 
-    return [tsLoader, svgLoader, fileLoader, styleLoader];
+    // Тут порядок слева на право
+    return [babelLoader, tsLoader, svgLoader, fileLoader, styleLoader];
 }
