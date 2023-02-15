@@ -1,3 +1,4 @@
+// объявляю типы файлов со стилями, для импорта
 declare module '*.scss' {
 	interface IClassNames {
 		[className: string]: string
@@ -14,6 +15,7 @@ declare module '*.css' {
 	export = classNames;
 }
 
+// объявляю типы файлов (assets), для импорта
 declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
@@ -24,4 +26,5 @@ declare module '*.svg' {
 	export default SVG;
 }
 
+// объявляю типы глобальных переменных
 declare const IS_DEV: boolean;
