@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-export default {
+const jestConfig = {
     // Автоматически очищайте фиктивные вызовы, экземпляры и результаты перед каждым тестом.
     clearMocks: true,
 
@@ -46,6 +46,22 @@ export default {
         'node',
     ],
 
+    // Jest пока не поддерживает абсолютные импорты, уронит тест в ошибку
+    // если вручную не указать root директорию
+    modulePaths: [
+        '<rootDir>src',
+    ],
+
+    // Путь к вайлу с импортами доп свойств для проверки
+    setupFilesAfterEnv: [
+        '<rootDir>config/jest/setupTests.ts',
+    ],
+
+    // Сопоставление регулярных выражений с именами модулей,
+    // что позволяет заглушить ресурсы с помощью одного модуля
+    moduleNameMapper: {
+        '\\.(scss)$': 'identity-obj-proxy',
+    },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -97,10 +113,6 @@ export default {
     // E.g. maxWorkers: 10% will use 10% of your CPU amount + 1
     // as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
-
-    // A map from regular expressions to module names or to arrays of
-    // module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
 
     // An array of regexp pattern strings, matched against all
     // module paths before considered 'visible' to the module loader
@@ -208,3 +220,5 @@ export default {
     // Whether to use watchman for file crawling
     // watchman: true,
 };
+
+export default jestConfig;

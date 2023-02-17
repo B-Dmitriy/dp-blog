@@ -1,5 +1,5 @@
 // Jest пока не поддерживает абсолютные импорты, уронит тест в ошибку
-import { classNames } from './classNames';
+import { classNames } from '07-shared/lib/classNames/classNames';
 
 describe('className', () => {
     test('with only first param', () => {
