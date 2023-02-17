@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 const jestConfig = {
     // Автоматически очищайте фиктивные вызовы, экземпляры и результаты перед каждым тестом.
     clearMocks: true,
@@ -61,6 +63,7 @@ const jestConfig = {
     // что позволяет заглушить ресурсы с помощью одного модуля
     moduleNameMapper: {
         '\\.(scss)$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
     },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
