@@ -33,7 +33,11 @@ export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.Webpack
 
     if (isDev) {
         // Плагин позволяющий "подтягивать" изменения без перезагрузки страницы
-        plugins.push(new ReactRefreshWebpackPlugin());
+        plugins.push(new ReactRefreshWebpackPlugin({
+            // Свойство убирает всплывающее на всё окно сообщение об ошибке
+            // отловленное ErrorBoundary
+            overlay: false,
+        }));
         // Плагин позволяющий проанализировать сборку
         // openAnalyzer - true - открывает в новой вкладке при сборке
         // openAnalyzer - false - не открывает но выкидывает ссыклу в консоль
