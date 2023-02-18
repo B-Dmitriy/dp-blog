@@ -1,0 +1,19 @@
+.app.light {
+    --primary-color: var(--green);
+    --bg-color: var(--white);
+    --bg-color-mute: var(--white-mute);
+    --button-primary-bg: var(--green);
+    --button-primary-hover: var(--green-dark);
+    --button-primary-disable: var(--gray-light-2);
+    --button-secondary-bg: var(--gray-dark-1);
+    --button-secondary-hover: var(--gray-dark-2);
+    --button-secondary-disable: var(--gray-light-3);
+    --button-outline-color: var(--text-color);
+    --button-outline-hover: var(--gray-dark-1);
+    --button-outline-disable: var(--gray);
+    --divider: var(--divider-light-1);
+    --divider-hover: var(--gray);
+    --text-color: var(--text-light-1);
+    --text-secondary: var(--text-light-2);
+    --inverted-text-color: var(--text-dark-1);
+}

@@ -14,6 +14,7 @@ export function buildWebpackConfig(options: BuildOptionsTypes): webpack.Configur
         output: {
             filename: '[name][contenthash].js',
             path: paths.output,
+            assetModuleFilename: 'static/[hash][ext][query]',
             // Очищать папку с билом перед новой сборкой
             clean: true,
         },

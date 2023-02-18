@@ -1,6 +1,5 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from '07-shared/ui/Button/Button';
 import classes from './ErrorScreen.module.scss';
 
 interface ErrorScreenProps {
@@ -17,7 +16,7 @@ export const ErrorScreen = ({ className }: ErrorScreenProps) => {
     return (
         <div className={classNames(classes.ErrorScreen, {}, [className])}>
             {t('something_went_wrong')}
-            <Button theme="primary" onClick={reload}>{t('reload_page')}</Button>
+            <button type="button" onClick={reload}>{t('reload_page')}</button>
         </div>
     );
 };

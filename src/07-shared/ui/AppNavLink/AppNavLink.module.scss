@@ -1,0 +1,19 @@
+.AppNavLink {
+    height: calc(100% + 1px);
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-time-main);
+    line-height: var(--navbar-height);
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    &.active {
+        border-bottom: 1px solid var(--primary-color);
+    }
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}

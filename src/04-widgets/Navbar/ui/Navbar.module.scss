@@ -1,7 +1,8 @@
 .Navbar {
     display: flex;
     align-items: center;
-    padding: 20px;
+
+    // padding: 20px;
     height: var(--navbar-height);
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--divider);
@@ -12,14 +13,7 @@
     }
 
     .links {
+        height: 100%;
         margin-left: auto;
-
-        a {
-            margin-left: 12px;
-
-            &:first-child {
-                margin-left: 0;
-            }
-        }
     }
 }

@@ -44,6 +44,11 @@ export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRu
         use: ['file-loader'],
     };
 
+    const assetsResource = {
+        test: /\.ttf/,
+        type: 'asset/resource',
+    };
+
     // Лоадеры из массива выполняются в обратном порядке
     const styleLoader = {
         test: /\.s[ac]ss$/i,
@@ -69,5 +74,5 @@ export function buildWebpackRules(options: BuildOptionsTypes): webpack.RuleSetRu
     };
 
     // Тут порядок слева на право
-    return [babelLoader, tsLoader, svgLoader, fileLoader, styleLoader];
+    return [babelLoader, tsLoader, svgLoader, assetsResource, fileLoader, styleLoader];
 }
