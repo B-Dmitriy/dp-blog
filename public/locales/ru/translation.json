@@ -1,5 +1,7 @@
 {
   "russian": "Русский",
   "english": "Английский",
-  "page_not_found": "Страница не найдена"
+  "page_not_found": "Страница не найдена",
+  "reload_page": "Перезагрузить страницу",
+  "something_went_wrong": "Что-то пошло не так..."
 }
