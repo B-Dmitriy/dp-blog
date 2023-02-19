@@ -6,7 +6,10 @@ interface LoaderProps {
 }
 
 export const Loader = ({ className }: LoaderProps) => (
-    <div className={classNames(classes.Loader, {}, [className])}>
+    <div
+        data-testid="loader_test_id"
+        className={classNames(classes.Loader, {}, [className])}
+    >
         <div className={classes.ldsDualRing} />
     </div>
 );

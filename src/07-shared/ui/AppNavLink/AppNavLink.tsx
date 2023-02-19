@@ -19,6 +19,7 @@ export const AppNavLink: FC<AppLinkProps> = (props) => {
     return (
         <NavLink
             to={to}
+            data-testid="navLink_test_id"
             className={({ isActive }) => classNames(classes.AppNavLink, {
                 [classes.active]: isActive,
             }, [className])}

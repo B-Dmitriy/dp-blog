@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676644721060" clover="3.2.0">
-  <project timestamp="1676644721061" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4" elements="11" coveredelements="11" complexity="0" loc="5" ncloc="5" packages="2" files="2" classes="2"/>
+<coverage generated="1676799380200" clover="3.2.0">
+  <project timestamp="1676799380200" name="All files">
+    <metrics statements="19" coveredstatements="19" conditionals="5" coveredconditionals="5" methods="11" coveredmethods="11" elements="35" coveredelements="35" complexity="0" loc="19" ncloc="19" packages="7" files="7" classes="7"/>
     <package name="lib.classNames">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="classNames.ts" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\lib\classNames\classNames.ts">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+        <line num="8" count="78" type="stmt"/>
+        <line num="9" count="25" type="stmt"/>
+      </file>
+    </package>
+    <package name="lib.testsHelpers">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="withMemoryRouter.tsx" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\lib\testsHelpers\withMemoryRouter.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="ui.AppNavLink">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="AppNavLink.tsx" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\ui\AppNavLink\AppNavLink.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
       </file>
     </package>
     <package name="ui.Button">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="Button.tsx" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\ui\Button\Button.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="ui.Loader">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Loader.tsx" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\ui\Loader\Loader.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="ui.PageLoader">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="PageLoader.tsx" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\ui\PageLoader\PageLoader.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="ui.Switch">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="Switch.tsx" path="C:\Users\d.balyaev\Desktop\dp-blog\src\07-shared\ui\Switch\Switch.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
       </file>
     </package>
   </project>
