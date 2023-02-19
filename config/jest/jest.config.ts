@@ -12,6 +12,14 @@ const jestConfig = {
     // Указывает, следует ли собирать информацию о покрытии во время выполнения теста.
     collectCoverage: true,
 
+    // Директория в которую Jest поместит фалы покрытия
+    coverageDirectory: './config/jest/coverage',
+
+    // Игнорировать информацию о покрытии из следующих директорий
+    coveragePathIgnorePatterns: [
+        '\\\\node_modules\\\\',
+    ],
+
     // Корневой каталог, в котором Jest должен сканировать тесты и модули.
     // Не там где лежит конфиг, а корень приложения, package.json
     rootDir: '../../',
@@ -20,14 +28,6 @@ const jestConfig = {
     // <rootDir> - ссылка на путь до корня проекта rootDir
     testMatch: [
         '<rootDir>src/**/*@(spec|test).[tj]s?(x)',
-    ],
-
-    // Директория в которую Jest поместит фалы покрытия
-    coverageDirectory: './config/jest/coverage',
-
-    // Игнорировать информацию о покрытии из следующих директорий
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
     ],
 
     // Тестовая среда, которая будет использоваться для тестирования
@@ -62,7 +62,7 @@ const jestConfig = {
     // Сопоставление регулярных выражений с именами модулей,
     // что позволяет заглушить ресурсы с помощью одного модуля
     moduleNameMapper: {
-        '\\.(scss)$': 'identity-obj-proxy',
+        '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'JestEmptySVGComponent.tsx'),
     },
     // All imported modules in your tests should be mocked automatically
