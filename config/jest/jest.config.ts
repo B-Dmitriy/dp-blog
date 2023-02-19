@@ -63,7 +63,7 @@ const jestConfig = {
     // что позволяет заглушить ресурсы с помощью одного модуля
     moduleNameMapper: {
         '\\.(scss)$': 'identity-obj-proxy',
-        '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
+        '\\.svg': path.resolve(__dirname, 'JestEmptySVGComponent.tsx'),
     },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
