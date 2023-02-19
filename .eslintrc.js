@@ -47,6 +47,7 @@ module.exports = {
         //     ignoreAttribute: ['type', 'theme', '...'],
         // }],
     },
+    // Блок определяющий глобальные переменные
     globals: {
         IS_DEV: true,
     },

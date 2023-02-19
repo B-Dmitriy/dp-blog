@@ -34,6 +34,7 @@
       "module": "CommonJS"
     }
   },
+  // На какие директории распростроняются правила, если не указать: на все
   "include": [
     "./config/jest/setupTests.ts",
     "./src/**/*.ts",
