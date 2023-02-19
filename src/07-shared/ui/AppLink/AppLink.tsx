@@ -1,20 +1,23 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
 import { FC } from 'react';
+import LinkIcon from '07-shared/assets/icons/link.svg';
 import classes from './AppLink.module.scss';
 
-export type AppLinkTheme = 'primary' | 'secondary';
+export type AppLinkView = 'primary' | 'secondary';
 
 interface AppLinkProps extends LinkProps {
     to: string;
-    theme?: AppLinkTheme;
+    view?: AppLinkView;
+    withIcon?: boolean;
     className?: string;
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {
     const {
         to,
-        theme = 'primary',
+        view = 'primary',
+        withIcon = false,
         className,
         children,
         ...otherProps
@@ -23,10 +26,14 @@ export const AppLink: FC<AppLinkProps> = (props) => {
     return (
         <Link
             to={to}
-            className={classNames(classes.AppLink, {}, [className, classes[theme]])}
+            data-testid="appLink_test_id"
+            className={classNames(classes.AppLink, {}, [className, classes[view]])}
             {...otherProps}
         >
-            {children}
+            <span className={classes.title}>
+                {children}
+            </span>
+            {withIcon && <LinkIcon />}
         </Link>
     );
 };
