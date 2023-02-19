@@ -19,7 +19,7 @@ export const ThemeSwitcher = ({
     return (
         <button
             type="button"
-            className={classNames(classes.Switch, {}, [className])}
+            className={classNames(classes.ThemeSwitcher, {}, [className])}
             onClick={onClick}
         >
             <div className={classNames(classes.switcher, {
@@ -27,8 +27,8 @@ export const ThemeSwitcher = ({
                 [classes.dark]: theme === Theme.DARK,
             }, [])}
             />
-            <SunIcon />
             <MoonIcon />
+            <SunIcon />
         </button>
     );
 };
