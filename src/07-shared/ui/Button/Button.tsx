@@ -25,6 +25,7 @@ export const Button = ({
 }: ButtonProps) => (
     <button
         type="button"
+        data-testid="button_test_id"
         className={classNames(classes.Button, {
             [classes.primary]: view === 'primary',
             [classes.secondary]: view === 'secondary',

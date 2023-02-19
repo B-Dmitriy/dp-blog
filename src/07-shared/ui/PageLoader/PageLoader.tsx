@@ -6,7 +6,10 @@ interface PageLoaderProps {
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => (
-    <div className={classNames(classes.PageLoader, {}, [className])}>
+    <div
+        data-testid="pageLoader_test_id"
+        className={classNames(classes.PageLoader, {}, [className])}
+    >
         <div className={classes.ldsEllipsis}>
             <div />
             <div />

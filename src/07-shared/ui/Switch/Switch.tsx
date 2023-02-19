@@ -18,6 +18,7 @@ export const Switch = ({
     return (
         <button
             type="button"
+            data-testid="switch__test_id"
             className={classNames(classes.Switch, {
                 [classes.active]: isActive,
                 [classes.inactive]: !isActive,
