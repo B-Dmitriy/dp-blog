@@ -1,0 +1,24 @@
+.IconLink {
+    display: flex;
+    align-items: center;
+    margin: 0 4px;
+
+    a {
+        svg {
+            path {
+                transition: var(--transition-time-main);
+                fill: var(--gray);
+            }
+        }
+    }
+
+    &:hover {
+        a {
+            svg {
+                path {
+                    fill: var(--text-color);
+                }
+            }
+        }
+    }
+}
