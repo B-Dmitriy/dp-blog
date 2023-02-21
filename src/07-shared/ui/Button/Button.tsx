@@ -5,7 +5,7 @@ import classes from './Button.module.scss';
 export type ButtonType = 'clear' | 'outline' | 'primary' | 'secondary';
 export type ButtonSize = 'small' | 'normal' | 'large';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     view?: ButtonType;
     size?: ButtonSize;
