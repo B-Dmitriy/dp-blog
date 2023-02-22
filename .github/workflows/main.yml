@@ -29,5 +29,5 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
       - name: loki test
-        run: test:ui:approve
+        run: npm run test:ui:ci
 
