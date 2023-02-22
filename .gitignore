@@ -2,3 +2,4 @@
 node_modules
 .idea
 /config/jest/coverage
+/storybook-static
