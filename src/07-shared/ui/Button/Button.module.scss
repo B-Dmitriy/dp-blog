@@ -11,6 +11,9 @@
     line-height: 24px;
 
     .Button__children {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0 4px;
     }
 
@@ -65,19 +68,24 @@
 
     &.clear {
         color: var(--button-outline-color);
-        padding: 0;
         margin: 0;
+        padding: 4px;
         border: none;
-        background: none;
+        background-color: transparent;
         outline: none;
+        transition: background-color var(--transition-time-main);
+
+        &.disabled {
+            cursor: not-allowed;
+            color: var(--gray);
+        }
 
         &:hover {
             color: var(--button-outline-hover);
         }
 
-        &.disabled {
-            cursor: not-allowed;
-            color: var(--gray);
+        &:focus {
+            background-color: var(--button-secondary-hover);
         }
     }
 
