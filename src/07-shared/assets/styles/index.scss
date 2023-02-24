@@ -4,15 +4,18 @@
 @import "./themes/dark";
 @import "./themes/light";
 
-.app {
+body {
     font-family: Inter, sans-serif;
     font-size: var(--font-size-m);
     line-height: var(--font-line-m);
+    color: var(--text-color);
+}
+
+.app {
     font-style: normal;
     font-weight: 400;
     min-height: 100vh;
     background-color: var(--bg-color);
-    color: var(--text-color);
     transition: background var(--transition-time-main);
 }
 
