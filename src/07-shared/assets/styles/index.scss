@@ -19,10 +19,7 @@ body {
     transition: background var(--transition-time-main);
 }
 
-.content-page {
-    display: flex;
-}
-
-.page-wrapper {
-    flex-grow: 1;
+.content__container {
+    width: var(--content-container-width);
+    margin: 0 auto;
 }
