@@ -41,6 +41,7 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'jsx-a11y/no-static-element-interactions': 'off',
         // 'i18next/no-literal-string': ['error', {
         //     markupOnly: true,
         //     //Перечисляем ВСЕ!!! атрибуты которые будем игнорировать
