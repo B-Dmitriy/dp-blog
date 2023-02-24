@@ -27,7 +27,9 @@ export const AppLink: FC<AppLinkProps> = (props) => {
         <Link
             to={to}
             data-testid="appLink_test_id"
-            className={classNames(classes.AppLink, {}, [className, classes[view]])}
+            className={classNames(classes.AppLink, {
+                [classes.withIcon]: withIcon,
+            }, [className, classes[view]])}
             {...otherProps}
         >
             <span className={classes.title}>
