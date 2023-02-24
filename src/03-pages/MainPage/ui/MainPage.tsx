@@ -23,6 +23,7 @@ const MainPage = () => {
             }}
             >
                 <div style={{ minWidth: '100px' }}>primary</div>
+                <Button view="primary"><SunIcon /></Button>
                 <Button view="primary" size="small">Text</Button>
                 <Button view="primary" size="small" disabled>Text</Button>
                 <Button view="primary">Text</Button>
@@ -38,6 +39,7 @@ const MainPage = () => {
             }}
             >
                 <div style={{ minWidth: '100px' }}>secondary</div>
+                <Button view="secondary"><SunIcon /></Button>
                 <Button view="secondary" size="small">Text</Button>
                 <Button view="secondary" size="small" disabled>Text</Button>
                 <Button view="secondary">Text</Button>
@@ -53,6 +55,7 @@ const MainPage = () => {
             }}
             >
                 <div style={{ minWidth: '100px' }}>outline</div>
+                <Button view="outline"><SunIcon /></Button>
                 <Button view="outline" size="small">Text</Button>
                 <Button view="outline" size="small" disabled>Text</Button>
                 <Button view="outline">Text</Button>
@@ -68,6 +71,7 @@ const MainPage = () => {
             }}
             >
                 <div style={{ minWidth: '100px' }}>clear</div>
+                <Button view="clear"><SunIcon /></Button>
                 <Button view="clear" size="small">Text</Button>
                 <Button view="clear" size="small" disabled>Text</Button>
                 <Button view="clear">Text</Button>
