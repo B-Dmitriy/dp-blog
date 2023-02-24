@@ -4,6 +4,12 @@
     transition: color var(--transition-time-main);
     margin: 0 2px;
 
+    &.withIcon {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
     .title {
         margin-right: 4px;
     }

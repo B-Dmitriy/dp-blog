@@ -20,14 +20,14 @@
         transition: 0.2s;
     }
 
-    &.inactive {
+    &.active {
         .switcher {
             left: 18px;
             background-color: var(--primary-color);
         }
     }
 
-    &.active {
+    &.inactive {
         .switcher {
             left: 1px;
             color: #5f8cee;
@@ -36,5 +36,13 @@
 
     &:hover {
         border-color: var(--divider-hover);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+
+        .switcher {
+            background-color: var(--gray);
+        }
     }
 }

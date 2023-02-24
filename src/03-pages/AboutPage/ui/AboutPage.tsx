@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink } from '07-shared/ui/AppLink/AppLink';
 import { Switch } from '07-shared/ui/Switch/Switch';
@@ -9,6 +9,7 @@ import MoonIcon from '07-shared/assets/icons/moon.svg';
 
 const AboutPage = () => {
     const { t } = useTranslation('about');
+    const [d, sD] = useState(false);
 
     return (
         <div>
@@ -18,7 +19,7 @@ const AboutPage = () => {
             }}
             >
                 <div style={{ minWidth: '100px' }}>link</div>
-                <AppLink to="/main">To main</AppLink>
+                <AppLink to="/main" withIcon>To main</AppLink>
                 <AppLink to="/main" view="secondary">To main</AppLink>
             </div>
             <div style={{
@@ -26,8 +27,8 @@ const AboutPage = () => {
             }}
             >
                 <div style={{ minWidth: '100px' }}>switch</div>
-                <Switch isActive changeIsActiveStatus={() => {}} />
-                <Switch isActive={false} changeIsActiveStatus={() => {}} />
+                <Switch isActive={d} changeIsActiveStatus={() => sD((prevState) => !prevState)} />
+                <Switch disabled isActive={false} changeIsActiveStatus={() => {}} />
             </div>
             <div style={{
                 padding: '40px', display: 'flex', gap: '30px', alignItems: 'center',

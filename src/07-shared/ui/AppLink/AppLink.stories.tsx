@@ -2,33 +2,39 @@ import React from 'react';
 import '../../assets/styles/index.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '01-app/providers/ThemeProvider';
-import { Button } from './Button';
+import { AppLink } from './AppLink';
 import { ThemeDecorator } from '../../../../config/storybook/decorators/ThemeDecorator';
+import { RouterDecorator } from '../../../../config/storybook/decorators/RouterDecorator';
 
 export default {
-    title: 'shared/Button',
-    component: Button,
+    title: 'shared/AppLink',
+    component: AppLink,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Button>;
+    args: {
+        to: '/',
+        children: 'link',
+    },
+    decorators: [RouterDecorator],
+} as ComponentMeta<typeof AppLink>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    disabled: false,
     view: 'primary',
-    size: 'normal',
-    leftIcon: undefined,
-    rightIcon: undefined,
-    children: 'Text',
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-    children: 'Text',
     view: 'primary',
 };
 
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryWithIcon = Template.bind({});
+PrimaryWithIcon.args = {
+    withIcon: true,
+    view: 'primary',
+};
