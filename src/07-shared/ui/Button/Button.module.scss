@@ -67,7 +67,7 @@
     }
 
     &.clear {
-        color: var(--button-outline-color);
+        color: var(--button-clear-color);
         margin: 0;
         padding: 4px;
         border: none;
@@ -77,15 +77,15 @@
 
         &.disabled {
             cursor: not-allowed;
-            color: var(--gray);
+            color: var(--button-clear-disable);
         }
 
         &:hover {
-            color: var(--button-outline-hover);
+            color: var(--button-clear-hover);
         }
 
         &:focus {
-            background-color: var(--button-secondary-hover);
+            background-color: var(--button-clear-focus);
         }
     }
 

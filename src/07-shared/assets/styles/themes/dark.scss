@@ -11,11 +11,22 @@
     --button-outline-color: var(--text-dark-1);
     --button-outline-hover: var(--text-dark-2);
     --button-outline-disable: var(--gray);
+    --button-clear-color: var(--text-dark-1);
+    --button-clear-hover: var(--text-dark-2);
+    --button-clear-focus: var(--gray-dark-3);
+    --button-clear-disable: var(--gray);
     --link-color: var(--text-color);
     --link-color-hover: var(--gray-light-3);
     --divider: var(--divider-dark-1);
     --divider-hover: var(--gray);
     --text-color: var(--text-dark-1);
     --text-secondary: var(--text-dark-2);
+    --input-border: var(--gray-light-2);
+    --input-hover: var(--gray);
+    --input-focus: var(--gray);
+    --input-disabled: var(--gray-dark-1);
+    --input-disabled-text: var(--gray-dark-1);
+    --input-error: var(--red-error);
+    --input-bg: var(--bg-color-mute);
     --inverted-text-color: var(--text-light-1);
 }
