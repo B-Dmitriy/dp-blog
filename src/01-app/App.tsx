@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { Navbar } from '04-widgets/Navbar';
+import { Sidebar } from '04-widgets/Sidebar';
 import { useTheme } from './providers/ThemeProvider';
 import { Router } from './providers/Router';
 
@@ -12,6 +13,7 @@ function App() {
             <Suspense fallback="">
                 <Navbar />
                 <div className="content__container">
+                    <Sidebar />
                     <Router />
                 </div>
             </Suspense>

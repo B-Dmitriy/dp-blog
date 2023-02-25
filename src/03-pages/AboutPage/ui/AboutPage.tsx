@@ -40,7 +40,6 @@ const AboutPage = () => {
                 <IconLink type="vk" href="ref" />
                 <IconLink type="gh" href="ref" />
             </div>
-            {t('main_page')}
             <div style={{
                 padding: '40px', display: 'flex', gap: '30px', alignItems: 'center',
             }}

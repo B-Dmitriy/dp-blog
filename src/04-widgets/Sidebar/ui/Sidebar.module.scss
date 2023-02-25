@@ -1,0 +1,14 @@
+.Sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-right: 1px solid var(--divider);
+    width: 240px;
+
+    .routes {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 8px;
+    }
+}

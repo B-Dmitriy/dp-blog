@@ -20,6 +20,13 @@ body {
 }
 
 .content__container {
+    display: flex;
     width: var(--content-container-width);
+    padding-top: var(--navbar-height);
     margin: 0 auto;
+    height: 100vh;
+}
+
+.content__container_page {
+    width: 100%;
 }
