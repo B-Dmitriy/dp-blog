@@ -1,0 +1,101 @@
+.Input {
+    position: relative;
+    max-width: 400px;
+    padding: 4px 0 16px;
+    color: var(--text-color);
+
+    .label {
+        display: flex;
+        align-items: baseline;
+        min-height: var(--font-line-s);
+
+        .text {
+            padding: 0 8px 0 4px;
+        }
+
+        &.topLabel {
+            flex-direction: column;
+            align-items: start;
+
+            .text {
+                align-self: start;
+                font-size: var(--font-size-s);
+                line-height: var(--font-line-s);
+            }
+        }
+
+        .root {
+            position: relative;
+            width: 100%;
+
+            .input {
+                width: 100%;
+                color: var(--text-color);
+                border: 1px solid var(--input-border);
+                border-radius: 4px;
+                padding: 4px 44px 4px 8px;
+                transition: border-color var(--transition-time-main);
+                background-color: var(--input-bg);
+
+                &.clear {
+                    border: none;
+                    border-bottom: 1px solid var(--input-border);
+                    border-radius: 0;
+                    padding: 0 44px 0 4px;
+                }
+
+                &.rootError {
+                    border-color: var(--input-error);
+                }
+
+                &:hover {
+                    border-color: var(--input-hover);
+                }
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--input-focus);
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    color: var(--input-disabled-text);
+                    border-color: var(--input-disabled);
+                }
+            }
+        }
+
+        .modification {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 11px;
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            height: 26px;
+
+            &.activeIcon {
+                cursor: pointer;
+
+                svg {
+                    path {
+                        stroke: var(--text-color);
+                    }
+                }
+            }
+
+            &.counter {
+                line-height: 40px;
+                align-items: baseline;
+            }
+        }
+    }
+
+    .error {
+        position: absolute;
+        font-size: var(--font-size-s);
+        color: var(--input-error);
+        line-height: 14px;
+    }
+}
