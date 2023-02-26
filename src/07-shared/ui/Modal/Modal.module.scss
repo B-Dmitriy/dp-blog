@@ -19,11 +19,12 @@
         .content {
             color: var(--text-color);
             background-color: var(--bg-color-mute);
-            padding: 12px;
+            padding: 20px;
             max-width: 50%;
             border-radius: var(--border-radius);
             transition: transform var(--transition-time-main);
             transform: scale(0.5);
+            border: 1px solid var(--modal-border-color);
         }
     }
 

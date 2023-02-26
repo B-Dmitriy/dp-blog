@@ -1,4 +1,5 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
+import { memo } from 'react';
 import classes from './Switch.module.scss';
 
 interface SwitchProps {
@@ -8,7 +9,7 @@ interface SwitchProps {
     changeIsActiveStatus: () => void;
 }
 
-export const Switch = ({
+export const Switch = memo(({
     disabled = false,
     className,
     isActive,
@@ -31,4 +32,4 @@ export const Switch = ({
             <div className={classes.switcher} />
         </button>
     );
-};
+});

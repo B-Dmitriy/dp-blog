@@ -3,6 +3,7 @@ import { ThemeSwitcher } from '05-features/ThemeSwitcher';
 import { LangSwitcher } from '05-features/LangSwitcher';
 import { useTranslation } from 'react-i18next';
 import { IconLink } from '07-shared/ui/IconLink/IconLink';
+import { AuthNavbar } from '05-features/Auth';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -24,6 +25,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                     </div>
                 </div>
                 <div className={classes.right}>
+                    <AuthNavbar />
                     <div className={classes.divider} />
                     <div className={classes.switchers}>
                         <LangSwitcher />

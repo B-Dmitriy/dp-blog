@@ -1,5 +1,5 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import classes from './Button.module.scss';
 
 export type ButtonType = 'clear' | 'outline' | 'primary' | 'secondary';
@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     rightIcon?: ReactNode;
 }
 
-export const Button = ({
+export const Button = memo(({
     disabled = false,
     view = 'primary',
     size = 'normal',
@@ -44,4 +44,4 @@ export const Button = ({
         </span>
         {rightIcon}
     </button>
-);
+));

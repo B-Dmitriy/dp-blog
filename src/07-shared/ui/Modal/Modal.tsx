@@ -1,8 +1,9 @@
 import {
-    PropsWithChildren, MouseEvent, useState, useEffect, useRef,
+    PropsWithChildren, MouseEvent, useState, useEffect, useRef, memo,
 } from 'react';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { useTheme } from '01-app/providers/ThemeProvider';
+import { Portal } from '07-shared/ui/Portal/Portal';
 import classes from './Modal.module.scss';
 
 interface ModelProps {
@@ -11,7 +12,7 @@ interface ModelProps {
     className?: string;
 }
 
-export const Modal = ({
+export const Modal = memo(({
     children,
     isOpen,
     onClose,
@@ -51,26 +52,28 @@ export const Modal = ({
     }, []);
 
     return (
-        <div
-            data-testid="modal_root_id"
-            className={classNames(classes.Modal, {
-                [classes.opened]: isOpen,
-                [classes.closing]: isClosing,
-            }, [className, theme])}
-        >
+        <Portal>
             <div
-                data-testid="modal_overlay_id"
-                className={classes.overlay}
-                onMouseDown={closeHandler}
+                data-testid="modal_root_id"
+                className={classNames(classes.Modal, {
+                    [classes.opened]: isOpen,
+                    [classes.closing]: isClosing,
+                }, [className, theme])}
             >
                 <div
-                    data-testid="modal_content_id"
-                    className={classes.content}
-                    onMouseDown={onContentClick}
+                    data-testid="modal_overlay_id"
+                    className={classes.overlay}
+                    onMouseDown={closeHandler}
                 >
-                    {children}
+                    <div
+                        data-testid="modal_content_id"
+                        className={classes.content}
+                        onMouseDown={onContentClick}
+                    >
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     );
-};
+});

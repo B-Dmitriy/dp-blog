@@ -1,6 +1,6 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
 import {
-    ChangeEvent, InputHTMLAttributes, ReactNode, useState,
+    ChangeEvent, InputHTMLAttributes, memo, ReactNode, useState,
 } from 'react';
 import classes from './Input.module.scss';
 import Cross from '../../assets/icons/cross.svg';
@@ -28,7 +28,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     labelPosition?: LabelPosition;
 }
 
-export const Input = ({
+export const Input = memo(({
     disabled = false,
     type, // Достаём значение, что бы оно не перезаписало type внутри
     view = 'primary',
@@ -47,7 +47,7 @@ export const Input = ({
 }: InputProps) => {
     const STRING_LENGTH = value.length;
 
-    const [isFieldOpen, setIsFieldOpen] = useState(true);
+    const [isFieldOpen, setIsFieldOpen] = useState(modification !== 'secret');
     const toggleIsFieldOpen = () => setIsFieldOpen((prev) => !prev);
 
     const resetValue = () => {
@@ -80,13 +80,14 @@ export const Input = ({
                 <div className={classes.root}>
                     <input
                         disabled={disabled}
-                        id="text_input"
+                        name="text_input"
                         type={isFieldOpen ? 'text' : 'password'}
                         className={classNames(classes.input, {
                             [classes.clear]: view === 'clear',
                             [classes.rootError]: !!error,
                         })}
                         maxLength={maxLength}
+                        autoComplete="disabled"
                         value={value}
                         onChange={onChangeHandler}
                         placeholder={placeholder}
@@ -121,4 +122,4 @@ export const Input = ({
             {error && <span className={classes.error}>{error}</span>}
         </div>
     );
-};
+});

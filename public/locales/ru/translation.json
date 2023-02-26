@@ -5,5 +5,13 @@
   "about": "О сайте",
   "page_not_found": "Страница не найдена",
   "reload_page": "Перезагрузить страницу",
-  "something_went_wrong": "Что-то пошло не так..."
+  "something_went_wrong": "Что-то пошло не так...",
+  "cancel": "Отмена",
+  "send_in": "Отправить",
+  "auth": {
+    "authentication": "Аутентификация",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "incorrect_data_error": "Неверно указаны логин или пароль"
+  }
 }

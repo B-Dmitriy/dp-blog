@@ -1,0 +1,17 @@
+.AuthForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+
+    .errorField {
+        height: 24px;
+    }
+
+    .controls {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        padding-top: 8px;
+    }
+}

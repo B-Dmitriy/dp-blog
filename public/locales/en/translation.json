@@ -5,5 +5,13 @@
   "about": "About",
   "page_not_found": "Page not found",
   "reload_page": "Reload this page",
-  "something_went_wrong": "Something went wrong..."
+  "something_went_wrong": "Something went wrong...",
+  "cancel": "Cancel",
+  "send_in": "Send in",
+  "auth": {
+    "authentication": "Authentication",
+    "username": "Username",
+    "password": "Password",
+    "incorrect_data_error": "Invalid username or password"
+  }
 }

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import GitHubIcon from '../../assets/icons/github.svg';
 import VKIcon from '../../assets/icons/vk.svg';
 import LinkedinIcon from '../../assets/icons/linkedin.svg';
@@ -9,7 +10,7 @@ interface IconProps {
     type: IconType;
 }
 
-export const Icon = ({ type }: IconProps) => {
+export const Icon = memo(({ type }: IconProps) => {
     switch (type) {
     case 'gh':
         return <GitHubIcon />;
@@ -22,4 +23,4 @@ export const Icon = ({ type }: IconProps) => {
     default:
         return null;
     }
-};
+});

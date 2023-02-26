@@ -1,0 +1,17 @@
+.Text {
+    padding: 0;
+    margin: 0;
+
+    &.header {
+        font-size: var(--font-size-l);
+    }
+
+    &.paragraph {
+        font-size: var(--font-size-m);
+        padding: 0 4px;
+    }
+
+    &.error {
+        color: var(--red-error);
+    }
+}
