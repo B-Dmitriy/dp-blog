@@ -8,6 +8,8 @@
   "something_went_wrong": "Something went wrong...",
   "cancel": "Cancel",
   "send_in": "Send in",
+  "login": "Log in",
+  "exit":"Exit",
   "auth": {
     "authentication": "Authentication",
     "username": "Username",

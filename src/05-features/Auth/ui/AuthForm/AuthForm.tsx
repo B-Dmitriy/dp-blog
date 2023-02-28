@@ -25,25 +25,32 @@ export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
     const error = useAppSelector(getAuthError);
     const isLoading = useAppSelector(getAuthIsLoading);
 
-    const onChangeUsername = useCallback(
-        (newValue: string) => dispatch(authActions.setUsername(newValue)),
-        [dispatch],
-    );
+    const onChangeUsername = useCallback((newValue: string) => {
+        if (error) dispatch(authActions.setError(''));
+        dispatch(authActions.setUsername(newValue));
+    }, [dispatch, error]);
 
-    const onChangePassword = useCallback(
-        (newValue: string) => dispatch(authActions.setPassword(newValue)),
-        [dispatch],
-    );
+    const onChangePassword = useCallback((newValue: string) => {
+        if (error) dispatch(authActions.setError(''));
+        dispatch(authActions.setPassword(newValue));
+    }, [dispatch, error]);
 
     const onSubmit = useCallback(() => {
-        dispatch(loginThunk({ username, password }));
+        dispatch(loginThunk({ username, password }))
+            .then((res) => {
+                if (res.meta.requestStatus === 'fulfilled') {
+                    dispatch(authActions.resetAuthState());
+                    onCancel();
+                }
+            });
     }, [dispatch, username, password]);
 
     return (
-        <section className={classNames(classes.AuthForm, {}, [className])}>
+        <form className={classNames(classes.AuthForm, {}, [className])}>
             <Text view="header">{t('auth.authentication')}</Text>
             <span className={classes.errorField}>{error && <Text view="error">{error}</Text>}</span>
             <Input
+                autoFocus
                 label={t('auth.username')}
                 value={username}
                 onChangeValue={onChangeUsername}
@@ -69,6 +76,6 @@ export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
                     {t('send_in')}
                 </Button>
             </div>
-        </section>
+        </form>
     );
 };

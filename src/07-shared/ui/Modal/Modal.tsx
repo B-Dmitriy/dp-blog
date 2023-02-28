@@ -70,7 +70,7 @@ export const Modal = memo(({
                         className={classes.content}
                         onMouseDown={onContentClick}
                     >
-                        {children}
+                        {isOpen ? children : null}
                     </div>
                 </div>
             </div>

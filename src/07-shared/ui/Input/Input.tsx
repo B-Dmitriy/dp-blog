@@ -87,7 +87,7 @@ export const Input = memo(({
                             [classes.rootError]: !!error,
                         })}
                         maxLength={maxLength}
-                        autoComplete="disabled"
+                        autoComplete="new-password"
                         value={value}
                         onChange={onChangeHandler}
                         placeholder={placeholder}

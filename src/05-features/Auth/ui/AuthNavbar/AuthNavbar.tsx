@@ -6,6 +6,7 @@ import { AuthForm } from '05-features/Auth/ui/AuthForm/AuthForm';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
 import { getAuthIsAuth } from '05-features/Auth/model/selectors/auth.selectors';
 import { logoutThunk } from '05-features/Auth/model/services/logout.thunk';
+import UserIcon from '07-shared/assets/icons/user.svg';
 import classes from './AuthNavbar.module.scss';
 
 interface AuthProps {
@@ -24,7 +25,8 @@ export const AuthNavbar = ({ className }: AuthProps) => {
 
     return (
         <div className={classNames(classes.AuthNavbar, {}, [className])}>
-            <Button view="clear" onClick={isAuth ? logout : openModal}>{isAuth ? 'Выход' : 'Не авторизован'}</Button>
+            <Button view="clear" onClick={isAuth ? logout : openModal}>{isAuth ? 'Выход' : 'Войти'}</Button>
+            { isAuth && <div className={classes.icon}><UserIcon /></div>}
             <Modal isOpen={isOpen} onClose={closeModal}>
                 <AuthForm onCancel={closeModal} />
             </Modal>

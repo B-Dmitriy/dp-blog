@@ -25,6 +25,13 @@ const authSlice = createSlice({
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
+        setError: (state, action: PayloadAction<string>) => {
+            state.error = action.payload;
+        },
+        resetAuthState: (state) => {
+            state.username = '';
+            state.password = '';
+        },
     },
     extraReducers: (builder) => {
         builder

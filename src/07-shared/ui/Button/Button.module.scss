@@ -72,7 +72,6 @@
         padding: 4px;
         border: none;
         background-color: transparent;
-        outline: none;
         transition: background-color var(--transition-time-main);
 
         &.disabled {
@@ -82,10 +81,6 @@
 
         &:hover {
             color: var(--button-clear-hover);
-        }
-
-        &:focus {
-            background-color: var(--button-clear-focus);
         }
     }
 

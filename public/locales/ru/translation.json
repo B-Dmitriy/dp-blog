@@ -8,6 +8,8 @@
   "something_went_wrong": "Что-то пошло не так...",
   "cancel": "Отмена",
   "send_in": "Отправить",
+  "login": "Войти",
+  "exit":"Выйти",
   "auth": {
     "authentication": "Аутентификация",
     "username": "Имя пользователя",
