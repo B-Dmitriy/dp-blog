@@ -1,11 +1,12 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
+import { memo } from 'react';
 import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {
     className?: string;
 }
 
-export const PageLoader = ({ className }: PageLoaderProps) => (
+export const PageLoader = memo(({ className }: PageLoaderProps) => (
     <div
         data-testid="pageLoader_test_id"
         className={classNames(classes.PageLoader, {}, [className])}
@@ -17,4 +18,4 @@ export const PageLoader = ({ className }: PageLoaderProps) => (
             <div />
         </div>
     </div>
-);
+));

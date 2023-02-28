@@ -28,6 +28,7 @@ module.exports = {
         'no-tabs': 'off',
         'no-redeclare': 'off',
         'no-shadow': 'off',
+        'no-param-reassign': 'off',
         indent: [2, 4],
         'no-unused-vars': 'warn',
         'import/extensions': 'off',
