@@ -1,19 +1,18 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { Modal } from '07-shared/ui/Modal/Modal';
 import { useCallback, useState } from 'react';
 import { Button } from '07-shared/ui/Button/Button';
-import { AuthForm } from '05-features/Auth/ui/AuthForm/AuthForm';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
 import { getAuthIsAuth } from '05-features/Auth/model/selectors/auth.selectors';
 import { logoutThunk } from '05-features/Auth/model/services/logout.thunk';
 import UserIcon from '07-shared/assets/icons/user.svg';
-import classes from './AuthNavbar.module.scss';
+import AuthModal from '../AuthModal/AuthModal';
+import classes from './Auth.module.scss';
 
 interface AuthProps {
     className?: string;
 }
 
-export const AuthNavbar = ({ className }: AuthProps) => {
+export const Auth = ({ className }: AuthProps) => {
     const dispatch = useAppDispatch();
 
     const isAuth = useAppSelector(getAuthIsAuth);
@@ -26,10 +25,8 @@ export const AuthNavbar = ({ className }: AuthProps) => {
     return (
         <div className={classNames(classes.AuthNavbar, {}, [className])}>
             <Button view="clear" onClick={isAuth ? logout : openModal}>{isAuth ? 'Выход' : 'Войти'}</Button>
-            { isAuth && <div className={classes.icon}><UserIcon /></div>}
-            <Modal isOpen={isOpen} onClose={closeModal}>
-                <AuthForm onCancel={closeModal} />
-            </Modal>
+            {isAuth && <div className={classes.icon}><UserIcon /></div>}
+            <AuthModal isOpen={isOpen} closeModal={closeModal} />
         </div>
     );
 };
