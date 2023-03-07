@@ -4,8 +4,10 @@ import { Input } from '07-shared/ui/Input/Input';
 import { Button } from '07-shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
-import { authActions, loginThunk } from '05-features/Auth';
-import { useCallback } from 'react';
+import { authActions, authReducer, loginThunk } from '05-features/Auth';
+import { useCallback, useEffect } from 'react';
+import { useStore } from 'react-redux';
+import { StoreWithReducerManager } from '01-app/providers/StoreProvider/types/state.types';
 import classes from './AuthForm.module.scss';
 import {
     getAuthError, getAuthIsLoading, getPassword, getUsername,
@@ -19,6 +21,7 @@ interface AuthFormProps {
 export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const store = useStore() as StoreWithReducerManager;
 
     const username = useAppSelector(getUsername);
     const password = useAppSelector(getPassword);
@@ -44,6 +47,16 @@ export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
                 }
             });
     }, [dispatch, username, password]);
+
+    useEffect(() => {
+        dispatch({ type: '@INIT authReducer' });
+        store.reducerManager.add('auth', authReducer);
+
+        return () => {
+            dispatch({ type: '@Remove authReducer' });
+            store.reducerManager.remove('auth');
+        };
+    }, []);
 
     return (
         <form className={classNames(classes.AuthForm, {}, [className])}>

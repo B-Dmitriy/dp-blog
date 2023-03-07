@@ -41,9 +41,9 @@ export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.Webpack
         // Плагин позволяющий проанализировать сборку
         // openAnalyzer - true - открывает в новой вкладке при сборке
         // openAnalyzer - false - не открывает но выкидывает ссыклу в консоль
-        plugins.push(new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }));
+        // plugins.push(new BundleAnalyzerPlugin({
+        //     openAnalyzer: false,
+        // }));
     }
 
     return plugins;
