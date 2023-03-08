@@ -1,7 +1,7 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
-import { Link, LinkProps } from 'react-router-dom';
 import { memo, PropsWithChildren } from 'react';
-import LinkIcon from '07-shared/assets/icons/link.svg';
+import { Link, LinkProps } from 'react-router-dom';
+import { classNames } from '../../lib/classNames/classNames';
+import LinkIcon from '../../assets/icons/link.svg';
 import classes from './AppLink.module.scss';
 
 export type AppLinkView = 'primary' | 'secondary';

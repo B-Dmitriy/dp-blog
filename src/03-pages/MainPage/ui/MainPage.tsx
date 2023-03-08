@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-// import { useTranslation } from 'react-i18next';
 import { Button } from '07-shared/ui/Button/Button';
 import { Modal } from '07-shared/ui/Modal/Modal';
-import { Portal } from '07-shared/ui/Portal/Portal';
+import { Portal } from '07-shared/lib/components/Portal/Portal';
 import { Input } from '07-shared/ui/Input/Input';
 import VK from '07-shared/assets/icons/vk.svg';
 
 const MainPage = () => {
-    // const { t } = useTranslation('main');
     const [error, setError] = useState(false);
     const [modal, setModal] = useState(false);
 

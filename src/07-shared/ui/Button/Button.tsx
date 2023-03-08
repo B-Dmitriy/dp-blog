@@ -1,5 +1,5 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { classNames } from '../../lib/classNames/classNames';
 import classes from './Button.module.scss';
 
 export type ButtonType = 'clear' | 'outline' | 'primary' | 'secondary';

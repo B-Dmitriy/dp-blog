@@ -1,5 +1,5 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import classes from './ErrorScreen.module.scss';
 
 interface ErrorScreenProps {

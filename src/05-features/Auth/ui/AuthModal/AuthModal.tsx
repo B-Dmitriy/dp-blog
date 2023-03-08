@@ -1,5 +1,5 @@
 import { Modal } from '07-shared/ui/Modal/Modal';
-import { AuthForm } from '05-features/Auth/ui/AuthForm/AuthForm';
+import { AuthForm } from '../AuthForm/AuthForm';
 
 interface AuthModalProps {
     isOpen: boolean;

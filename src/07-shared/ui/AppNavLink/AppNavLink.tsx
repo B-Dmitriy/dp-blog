@@ -1,6 +1,6 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
-import { NavLink, NavLinkProps } from 'react-router-dom';
 import { memo, PropsWithChildren } from 'react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
+import { classNames } from '../../lib/classNames/classNames';
 import classes from './AppNavLink.module.scss';
 
 interface AppLinkProps extends NavLinkProps {
