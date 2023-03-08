@@ -1,4 +1,6 @@
 export { Auth } from './ui/Auth/Auth';
-export { authReducer, authActions } from './model/slice/auth.slice';
 export { loginThunk } from './model/services/login.thunk';
-export type { AuthInitialState } from './types/auth.types';
+export { meThunk } from './model/services/me.thunk';
+export { logoutThunk } from './model/services/logout.thunk';
+export { authActions } from './model/slice/auth.slice';
+export type { AuthInitialState, LoginThunk } from './types/auth.types';

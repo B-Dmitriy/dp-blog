@@ -1,4 +1,3 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
 import {
     ChangeEvent, InputHTMLAttributes, memo, ReactNode, useState,
 } from 'react';
@@ -6,8 +5,7 @@ import classes from './Input.module.scss';
 import Cross from '../../assets/icons/cross.svg';
 import EyeOpen from '../../assets/icons/eye-open.svg';
 import EyeClose from '../../assets/icons/eye-closed.svg';
-
-export { InputHTMLAttributes } from 'react';
+import { classNames } from '../../lib/classNames/classNames';
 
 type InputTypes = 'primary' | 'clear';
 type LabelPosition = 'top' | 'left';

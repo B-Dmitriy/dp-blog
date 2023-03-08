@@ -1,9 +1,9 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import { ThemeSwitcher } from '05-features/ThemeSwitcher';
 import { LangSwitcher } from '05-features/LangSwitcher';
-import { useTranslation } from 'react-i18next';
-import { IconLink } from '07-shared/ui/IconLink/IconLink';
 import { Auth } from '05-features/Auth';
+import { IconLink } from '07-shared/ui/IconLink/IconLink';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {

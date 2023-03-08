@@ -1,5 +1,5 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
-import { ErrorScreen } from '04-widgets/ErrorScreen/ui/ErrorScreen';
+import { ErrorScreen } from '04-widgets/ErrorScreen';
 import { Loader } from '07-shared/ui/Loader/Loader';
 
 interface Props {

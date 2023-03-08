@@ -1,11 +1,11 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
 import { useCallback, useState } from 'react';
 import { Button } from '07-shared/ui/Button/Button';
-import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
-import { getAuthIsAuth } from '05-features/Auth/model/selectors/auth.selectors';
-import { logoutThunk } from '05-features/Auth/model/services/logout.thunk';
 import UserIcon from '07-shared/assets/icons/user.svg';
+import { classNames } from '07-shared/lib/classNames/classNames';
+import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
 import AuthModal from '../AuthModal/AuthModal';
+import { getAuthIsAuth } from '../../model/selectors/auth.selectors';
+import { logoutThunk } from '../../model/services/logout.thunk';
 import classes from './Auth.module.scss';
 
 interface AuthProps {

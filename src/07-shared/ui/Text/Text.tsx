@@ -1,5 +1,5 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
 import { memo, PropsWithChildren } from 'react';
+import { classNames } from '../../lib/classNames/classNames';
 import classes from './Text.module.scss';
 
 type TextType = 'header' | 'paragraph' | 'error';

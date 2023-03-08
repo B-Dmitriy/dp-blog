@@ -1,6 +1,6 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { ChangeEvent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import LangIcon from '07-shared/assets/icons/language.svg';
 import classes from './LangSwitcher.module.scss';
 

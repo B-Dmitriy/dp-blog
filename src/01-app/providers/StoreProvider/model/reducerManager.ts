@@ -8,7 +8,6 @@ export function createReducerManager(
 ): ReducerManager {
     const reducers = { ...initialReducers };
 
-    // eslint-disable-next-line no-undef
     let combinedReducer = combineReducers(reducers);
 
     let keysToRemove: RootStateKey[] = [];

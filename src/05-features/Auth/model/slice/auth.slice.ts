@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { meThunk } from '05-features/Auth/model/services/me.thunk';
-import { logoutThunk } from '05-features/Auth/model/services/logout.thunk';
-import { AuthInitialState } from '../../types/auth.types';
+import { meThunk } from '../services/me.thunk';
+import { logoutThunk } from '../services/logout.thunk';
 import { loginThunk } from '../services/login.thunk';
+import type { AuthInitialState } from '../../types/auth.types';
 
 const initialState: AuthInitialState = {
     isAuth: false,

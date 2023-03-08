@@ -1,6 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { AppNavLink } from '07-shared/ui/AppNavLink/AppNavLink';
-import { useTranslation } from 'react-i18next';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {

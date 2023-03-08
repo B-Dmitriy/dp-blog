@@ -1,6 +1,6 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
-import { Icon } from '07-shared/ui/Icon/Icon';
 import { memo } from 'react';
+import { Icon } from '../Icon/Icon';
+import { classNames } from '../../lib/classNames/classNames';
 import classes from './IconLink.module.scss';
 import type { IconType } from '../Icon/Icon';
 

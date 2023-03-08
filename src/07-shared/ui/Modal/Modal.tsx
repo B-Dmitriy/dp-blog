@@ -1,9 +1,9 @@
 import {
     PropsWithChildren, MouseEvent, useState, useEffect, useRef, memo,
 } from 'react';
-import { classNames } from '07-shared/lib/classNames/classNames';
 import { useTheme } from '01-app/providers/ThemeProvider';
-import { Portal } from '07-shared/ui/Portal/Portal';
+import { Portal } from '../../lib/components/Portal/Portal';
+import { classNames } from '../../lib/classNames/classNames';
 import classes from './Modal.module.scss';
 
 interface ModelProps {
