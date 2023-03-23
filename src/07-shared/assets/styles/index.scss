@@ -20,13 +20,12 @@ body {
 
 .content__container {
     display: flex;
-    width: var(--content-container-width);
-    padding-top: var(--navbar-height);
+    width: 100%;
+    max-width: var(--content-container-width);
     margin: 0 auto;
-    height: 100vh;
-    overflow: auto;
+    min-height: 100%;
 }
 
 .content__container_page {
-    width: 100%;
+    flex-grow: 1;
 }
