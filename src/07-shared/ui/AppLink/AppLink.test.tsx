@@ -1,5 +1,5 @@
-import { withMemoryRouter } from '07-shared/lib/testsHelpers/withMemoryRouter';
 import { render, screen } from '@testing-library/react';
+import { withMemoryRouter } from '07-shared/lib/testsHelpers/withMemoryRouter';
 import { AppLink } from './AppLink';
 
 describe('AppLink', () => {

@@ -1,6 +1,6 @@
 import { memo, PropsWithChildren } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-import { classNames } from '../../lib/classNames/classNames';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import LinkIcon from '../../assets/icons/link.svg';
 import classes from './AppLink.module.scss';
 

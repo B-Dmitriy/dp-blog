@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../assets/styles/index.scss';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '01-app/providers/ThemeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Theme } from '07-shared/lib/components/ThemeProvider';
 import { Modal } from './Modal';
 import { ThemeDecorator } from '../../../../config/storybook/decorators/ThemeDecorator';
+import '../../assets/styles/index.scss';
 
 export default {
     title: 'shared/Modal',

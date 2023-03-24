@@ -1,5 +1,5 @@
-import { Button } from '07-shared/ui/Button/Button';
 import { render, screen } from '@testing-library/react';
+import { Button } from '07-shared/ui/Button/Button';
 
 describe('Button', () => {
     test('Button is render without view prop', () => {

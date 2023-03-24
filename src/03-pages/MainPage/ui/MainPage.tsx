@@ -19,9 +19,10 @@ const MainPage = () => {
     return (
         <div>
             <button type="button" onClick={() => setError(true)}>Error</button>
-            <Button view="clear" onClick={() => setModal(true)}>Modal</Button>
+            <Button view="clear" onClick={() => setModal(true)}>Lazy Modal</Button>
             <Portal>
                 <Modal
+                    isLazy
                     isOpen={modal}
                     onClose={() => setModal(false)}
                 >

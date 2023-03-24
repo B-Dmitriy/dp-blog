@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { ThemeSwitcher } from '05-features/ThemeSwitcher';
-import { LangSwitcher } from '05-features/LangSwitcher';
 import { Auth } from '05-features/Auth';
+import { LangSwitcher } from '05-features/LangSwitcher';
+import { ThemeSwitcher } from '05-features/ThemeSwitcher';
 import { IconLink } from '07-shared/ui/IconLink/IconLink';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import classes from './Navbar.module.scss';

@@ -1,8 +1,8 @@
 import { memo } from 'react';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import { Icon } from '../Icon/Icon';
-import { classNames } from '../../lib/classNames/classNames';
-import classes from './IconLink.module.scss';
 import type { IconType } from '../Icon/Icon';
+import classes from './IconLink.module.scss';
 
 interface IconLinkProps {
     className?: string;

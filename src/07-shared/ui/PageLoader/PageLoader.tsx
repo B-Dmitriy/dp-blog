@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from '../../lib/classNames/classNames';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {
