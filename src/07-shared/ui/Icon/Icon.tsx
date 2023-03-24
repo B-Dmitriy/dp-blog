@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import GitHubIcon from '../../assets/icons/github.svg';
-import VKIcon from '../../assets/icons/vk.svg';
-import LinkedinIcon from '../../assets/icons/linkedin.svg';
-import TGIcon from '../../assets/icons/telegram.svg';
+import VKIcon from '07-shared/assets/icons/vk.svg';
+import TGIcon from '07-shared/assets/icons/telegram.svg';
+import GitHubIcon from '07-shared/assets/icons/github.svg';
+import LinkedinIcon from '07-shared/assets/icons/linkedin.svg';
 
 export type IconType = 'vk' | 'gh' | 'li' | 'tg';
 

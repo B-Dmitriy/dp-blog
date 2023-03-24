@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
-import { Button } from '07-shared/ui/Button/Button';
 import UserIcon from '07-shared/assets/icons/user.svg';
+import { Button } from '07-shared/ui/Button/Button';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
-import AuthModal from '../AuthModal/AuthModal';
+import { AuthModal } from '../AuthModal/AuthModal.async';
 import { getAuthIsAuth } from '../../model/selectors/auth.selectors';
 import { logoutThunk } from '../../model/services/logout.thunk';
 import classes from './Auth.module.scss';

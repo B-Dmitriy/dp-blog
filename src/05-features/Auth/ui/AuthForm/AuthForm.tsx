@@ -5,7 +5,7 @@ import { Input } from '07-shared/ui/Input/Input';
 import { Button } from '07-shared/ui/Button/Button';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
-import { AsyncReducerLoader, ReducerList } from '07-shared/lib/components/AsynReducerLoader/AsyncReducerLoader';
+import { AsyncReducerLoader, ReducerList } from '07-shared/lib/components';
 import { authActions, authReducer } from '../../model/slice/auth.slice';
 import { loginThunk } from '../../model/services/login.thunk';
 import classes from './AuthForm.module.scss';

@@ -1,13 +1,14 @@
 import {
-    PropsWithChildren, MouseEvent, useState, useEffect, useRef, memo,
+    memo, MouseEvent, PropsWithChildren, useEffect, useRef, useState,
 } from 'react';
+import { Portal } from '07-shared/lib/components/Portal/Portal';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import { useTheme } from '07-shared/lib/components/ThemeProvider';
-import { Portal } from '../../lib/components/Portal/Portal';
-import { classNames } from '../../lib/classNames/classNames';
 import classes from './Modal.module.scss';
 
 interface ModelProps {
     isOpen: boolean;
+    isLazy?: boolean;
     onClose?: () => void;
     className?: string;
 }
@@ -16,6 +17,7 @@ export const Modal = memo(({
     children,
     isOpen,
     onClose,
+    isLazy = false,
     className,
 }: PropsWithChildren<ModelProps>) => {
     const ANIMATION_DELAY = 150; // Must be shorts then transition time (250)
@@ -23,6 +25,7 @@ export const Modal = memo(({
     const { theme } = useTheme();
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     const onContentClick = (e: MouseEvent) => e.stopPropagation();
 
@@ -50,6 +53,14 @@ export const Modal = memo(({
             window.removeEventListener('keydown', onEscapePress);
         };
     }, []);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
+    if (isLazy && !isMounted) return null;
 
     return (
         <Portal>

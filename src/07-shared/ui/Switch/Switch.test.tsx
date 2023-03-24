@@ -1,5 +1,5 @@
-import { Switch } from '07-shared/ui/Switch/Switch';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { Switch } from '07-shared/ui/Switch/Switch';
 
 describe('Switch', () => {
     test('Switch is render', () => {

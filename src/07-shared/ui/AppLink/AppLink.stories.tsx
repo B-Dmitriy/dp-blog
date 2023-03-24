@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../assets/styles/index.scss';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '07-shared/lib/components/ThemeProvider';
 import { AppLink } from './AppLink';
 import { ThemeDecorator } from '../../../../config/storybook/decorators/ThemeDecorator';
 import { RouterDecorator } from '../../../../config/storybook/decorators/RouterDecorator';
+import '../../assets/styles/index.scss';
 
 export default {
     title: 'shared/AppLink',
