@@ -4,7 +4,7 @@ import { Sidebar } from '04-widgets/Sidebar';
 import { meThunk } from '05-features/Auth';
 import { useAppDispatch } from '07-shared/lib/hooks/app';
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { useTheme } from './providers/ThemeProvider';
+import { useTheme } from '07-shared/lib/components/ThemeProvider';
 import { Router } from './providers/Router';
 
 function App() {

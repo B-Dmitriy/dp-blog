@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/styles/index.scss';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '01-app/providers/ThemeProvider';
+import { Theme } from '07-shared/lib/components/ThemeProvider';
 import { Switch } from './Switch';
 import { ThemeDecorator } from '../../../../config/storybook/decorators/ThemeDecorator';
 

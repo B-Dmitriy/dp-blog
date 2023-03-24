@@ -1,7 +1,7 @@
 import {
     PropsWithChildren, MouseEvent, useState, useEffect, useRef, memo,
 } from 'react';
-import { useTheme } from '01-app/providers/ThemeProvider';
+import { useTheme } from '07-shared/lib/components/ThemeProvider';
 import { Portal } from '../../lib/components/Portal/Portal';
 import { classNames } from '../../lib/classNames/classNames';
 import classes from './Modal.module.scss';
