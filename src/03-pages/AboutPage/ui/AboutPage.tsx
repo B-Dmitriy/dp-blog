@@ -28,7 +28,12 @@ const AboutPage = () => {
             >
                 <div style={{ minWidth: '100px' }}>switch</div>
                 <Switch isActive={d} changeIsActiveStatus={() => sD((prevState) => !prevState)} />
-                <Switch disabled isActive={false} changeIsActiveStatus={() => {}} />
+                <Switch
+                    disabled
+                    isActive={false}
+                    changeIsActiveStatus={() => {
+                    }}
+                />
             </div>
             <div style={{
                 padding: '40px', display: 'flex', gap: '30px', alignItems: 'center',
