@@ -1,14 +1,9 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '07-shared/lib/classNames/classNames';
 import LangIcon from '07-shared/assets/icons/language.svg';
 import classes from './LangSwitcher.module.scss';
 
-interface LangSwitcherProps {
-    className?: string;
-}
-
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = memo(() => {
     const { t, i18n } = useTranslation();
 
     const onSelectChangeLang = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -16,7 +11,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
     };
 
     return (
-        <div className={classNames(classes.LangSwitcher, {}, [className])}>
+        <div className={classes.LangSwitcher}>
             <LangIcon />
             <select name="language" id="lang" onChange={onSelectChangeLang} value={i18n.language}>
                 <option value="ru">{t('russian')}</option>
@@ -24,4 +19,4 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
             </select>
         </div>
     );
-};
+});

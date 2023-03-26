@@ -3,9 +3,9 @@ import i18n from 'i18next';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, userActions } from '06-entities/User';
 import { USER_LOCALSTORAGE_KEY } from '07-shared/constants/constants';
-import type { LoginThunk } from '../../types/auth.types';
+import type { LoginThunk } from '../../../types/auth.types';
 
-export const loginThunk = createAsyncThunk<User, LoginThunk, { rejectValue: string }>(
+export const login = createAsyncThunk<User, LoginThunk, { rejectValue: string }>(
     'auth/loginThunk',
     async ({ username, password }: LoginThunk, thunkAPI) => {
         try {

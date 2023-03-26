@@ -1,20 +1,17 @@
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+import { SidebarMenuItem } from '04-widgets/Sidebar/ui/SidebarMenuItem/SidebarMenuItem';
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { AppNavLink } from '07-shared/ui/AppNavLink/AppNavLink';
+import { sidebarMenuList } from '../lib/sidebarMenuList';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
-    const { t } = useTranslation();
-    return (
-        <nav className={classNames(classes.Sidebar, {}, [className])}>
-            <div className={classes.routes}>
-                <AppNavLink to="/">{t('main')}</AppNavLink>
-                <AppNavLink to="/about">{t('about')}</AppNavLink>
-            </div>
-        </nav>
-    );
-};
+export const Sidebar = memo(({ className }: SidebarProps) => (
+    <nav className={classNames(classes.Sidebar, {}, [className])}>
+        <div className={classes.routes}>
+            {sidebarMenuList.map((item) => <SidebarMenuItem key={item.path} item={item} />)}
+        </div>
+    </nav>
+));

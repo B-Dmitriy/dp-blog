@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { meThunk } from '../services/me.thunk';
-import { logoutThunk } from '../services/logout.thunk';
-import { loginThunk } from '../services/login.thunk';
+import { me } from '../services/me/me';
+import { logout } from '../services/logout/logout';
+import { login } from '../services/login/login';
 import type { AuthInitialState } from '../../types/auth.types';
 
 const initialState: AuthInitialState = {
@@ -35,29 +35,29 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(loginThunk.pending, (state) => {
+            .addCase(login.pending, (state) => {
                 state.error = '';
                 state.isLoading = true;
             })
-            .addCase(loginThunk.fulfilled, (state) => {
+            .addCase(login.fulfilled, (state) => {
                 state.isAuth = true;
                 state.isLoading = false;
             })
-            .addCase(loginThunk.rejected, (state, action) => {
+            .addCase(login.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isAuth = false;
                 state.error = action.payload;
             })
-            .addCase(meThunk.fulfilled, (state) => {
+            .addCase(me.fulfilled, (state) => {
                 state.isAuth = true;
             })
-            .addCase(meThunk.rejected, (state) => {
+            .addCase(me.rejected, (state) => {
                 state.isAuth = false;
             })
-            .addCase(logoutThunk.fulfilled, (state) => {
+            .addCase(logout.fulfilled, (state) => {
                 state.isAuth = false;
             })
-            .addCase(logoutThunk.rejected, (state) => {
+            .addCase(logout.rejected, (state) => {
                 state.isAuth = true;
             });
     },

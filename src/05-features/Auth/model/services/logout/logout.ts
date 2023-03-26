@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { userActions } from '06-entities/User';
 import { USER_LOCALSTORAGE_KEY } from '07-shared/constants/constants';
 
-export const logoutThunk = createAsyncThunk(
+export const logout = createAsyncThunk(
     'auth/logoutThunk',
     async (_, thunkAPI) => {
         try {
