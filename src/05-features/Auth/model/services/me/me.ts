@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from '07-shared/constants/constants';
 import { userActions } from '06-entities/User';
 
-export const meThunk = createAsyncThunk(
+export const me = createAsyncThunk(
     'auth/meThunk',
     async (_, thunkAPI) => {
         try {

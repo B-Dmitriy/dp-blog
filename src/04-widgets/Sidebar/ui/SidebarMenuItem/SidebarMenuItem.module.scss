@@ -1,0 +1,15 @@
+.SidebarMenuItem {
+    display: flex;
+    align-items: center;
+    height: 28px;
+
+    .link {
+        margin-left: 8px;
+    }
+
+    svg {
+        path {
+            fill: var(--text-secondary);
+        }
+    }
+}

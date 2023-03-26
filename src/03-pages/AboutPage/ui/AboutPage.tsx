@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink } from '07-shared/ui/AppLink/AppLink';
 import { Switch } from '07-shared/ui/Switch/Switch';
@@ -7,7 +7,7 @@ import { Button } from '07-shared/ui/Button/Button';
 import SunIcon from '07-shared/assets/icons/sun.svg';
 import MoonIcon from '07-shared/assets/icons/moon.svg';
 
-const AboutPage = () => {
+const AboutPage = memo(() => {
     const { t } = useTranslation('about');
     const [d, sD] = useState(false);
 
@@ -107,6 +107,6 @@ const AboutPage = () => {
             </div>
         </div>
     );
-};
+});
 
 export default AboutPage;

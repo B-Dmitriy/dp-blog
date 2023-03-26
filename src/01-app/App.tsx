@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from 'react';
 import { Navbar } from '04-widgets/Navbar';
 import { Sidebar } from '04-widgets/Sidebar';
-import { meThunk } from '05-features/Auth';
+import { me } from '05-features/Auth';
 import { useAppDispatch } from '07-shared/lib/hooks/app';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { useTheme } from '07-shared/lib/components/ThemeProvider';
@@ -12,7 +12,7 @@ function App() {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(meThunk());
+        dispatch(me());
     }, []);
 
     return (
