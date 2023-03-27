@@ -1,13 +1,8 @@
-import axios from 'axios';
 import i18n from 'i18next';
 import type { LoginThunk } from '05-features/Auth';
 import { User, userActions } from '06-entities/User';
 import { TestAsyncThunk } from '07-shared/lib/testsHelpers/TestAsynkThunk';
 import { login } from './login';
-
-jest.mock('axios');
-
-const mockedAxios = jest.mocked(axios, true);
 
 const user: User = {
     id: 22,
@@ -17,9 +12,10 @@ const user: User = {
 
 describe('login thunk', () => {
     it('should be return user info', async () => {
-        mockedAxios.post.mockReturnValue(Promise.resolve({ data: user }));
-
         const thunk = new TestAsyncThunk<User, LoginThunk, string>(login);
+
+        thunk.api.post.mockReturnValue(Promise.resolve({ data: user }));
+
         const result = await thunk.callThunk({ username: 'user', password: '123' });
 
         expect(thunk.dispatch).toBeCalledWith(userActions.setUserData(user));
@@ -29,9 +25,10 @@ describe('login thunk', () => {
     });
 
     it('should be return error message', async () => {
-        mockedAxios.post.mockReturnValue(Promise.reject());
-
         const thunk = new TestAsyncThunk<User, LoginThunk, string>(login);
+
+        thunk.api.post.mockReturnValue(Promise.reject());
+
         const result = await thunk.callThunk({ username: 'user', password: '123' });
 
         expect(result.meta.requestStatus).toBe('rejected');
