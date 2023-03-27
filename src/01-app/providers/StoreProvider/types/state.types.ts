@@ -4,6 +4,9 @@ import {
 } from '@reduxjs/toolkit';
 import type { AuthInitialState } from '05-features/Auth';
 import type { UserInitialState } from '06-entities/User';
+import { To } from 'history';
+import { NavigateOptions } from 'react-router';
+import { AxiosInstance } from 'axios';
 import { createReduxStore } from '../model/store';
 
 const store = createReduxStore();
@@ -33,4 +36,14 @@ export interface ReducerManager {
 
 export interface StoreWithReducerManager extends EnhancedStore<RootState> {
     reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+    api: AxiosInstance;
+    navigate: (to: To, options?: NavigateOptions) => void
+}
+
+export interface ThunkConfig<T> {
+    rejectValue: T;
+    extra: ThunkExtraArg;
 }

@@ -6,7 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import type { BuildOptionsTypes } from './types/build.types';
 
 export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.WebpackPluginInstance[] {
-    const { paths, isDev } = options;
+    const { paths, isDev, baseUrl } = options;
 
     const plugins = [
         // Плагин показываюший состояние сборки
@@ -28,6 +28,7 @@ export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.Webpack
         // нужно объявить в global.d.ts
         new webpack.DefinePlugin({
             IS_DEV: isDev,
+            __API__: JSON.stringify(baseUrl),
         }),
     ];
 

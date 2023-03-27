@@ -7,4 +7,6 @@ export type {
     ReducerManager,
     StoreWithReducerManager,
     ReduxProviderProps,
+    ThunkExtraArg,
+    ThunkConfig,
 } from './types/state.types';

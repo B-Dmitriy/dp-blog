@@ -43,6 +43,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'jsx-a11y/no-static-element-interactions': 'off',
+        'no-underscore-dangle': 'off',
         // 'i18next/no-literal-string': ['error', {
         //     markupOnly: true,
         //     //Перечисляем ВСЕ!!! атрибуты которые будем игнорировать
@@ -52,5 +53,6 @@ module.exports = {
     // Блок определяющий глобальные переменные
     globals: {
         IS_DEV: true,
+        __API__: true,
     },
 };

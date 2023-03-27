@@ -1,13 +1,13 @@
-import axios from 'axios';
 import i18n from 'i18next';
 import type { LoginThunk } from '05-features/Auth';
 import { User, userActions } from '06-entities/User';
 import { TestAsyncThunk } from '07-shared/lib/testsHelpers/TestAsynkThunk';
+import { $api } from '07-shared/api/api';
 import { login } from './login';
 
-jest.mock('axios');
+jest.mock('../../../../../07-shared/api/api');
 
-const mockedAxios = jest.mocked(axios, true);
+const mockedAxios = jest.mocked($api, true);
 
 const user: User = {
     id: 22,
