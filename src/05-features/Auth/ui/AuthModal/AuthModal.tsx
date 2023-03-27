@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Modal } from '07-shared/ui/Modal/Modal';
 import { AuthForm } from '../AuthForm/AuthForm';
 
@@ -6,7 +7,7 @@ interface AuthModalProps {
     closeModal: () => void;
 }
 
-const AuthModal = ({ isOpen, closeModal }: AuthModalProps) => (
+const AuthModal = memo(({ isOpen, closeModal }: AuthModalProps) => (
     <div>
         <Modal
             isOpen={isOpen}
@@ -15,5 +16,6 @@ const AuthModal = ({ isOpen, closeModal }: AuthModalProps) => (
             <AuthForm onCancel={closeModal} />
         </Modal>
     </div>
-);
+));
+
 export default AuthModal;

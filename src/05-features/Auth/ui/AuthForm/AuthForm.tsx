@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text } from '07-shared/ui/Text/Text';
 import { Input } from '07-shared/ui/Input/Input';
@@ -7,12 +7,11 @@ import { classNames } from '07-shared/lib/classNames/classNames';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
 import { AsyncReducerLoader, ReducerList } from '07-shared/lib/components';
 import { authActions, authReducer } from '../../model/slice/auth.slice';
-import { loginThunk } from '../../model/services/login.thunk';
-import classes from './AuthForm.module.scss';
-
+import { login } from '../../model/services/login/login';
 import {
     getAuthError, getAuthIsLoading, getPassword, getUsername,
-} from '../../model/selectors/auth.selectors';
+} from '../../model/selectors/authSelectors';
+import classes from './AuthForm.module.scss';
 
 interface AuthFormProps {
     className?: string;
@@ -23,7 +22,7 @@ const initialReducers: ReducerList = {
     auth: authReducer,
 };
 
-export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
+export const AuthForm = memo(({ className, onCancel }: AuthFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -43,7 +42,7 @@ export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
     }, [dispatch, error]);
 
     const onSubmit = useCallback(() => {
-        dispatch(loginThunk({ username, password }))
+        dispatch(login({ username, password }))
             .then((res) => {
                 if (res.meta.requestStatus === 'fulfilled') {
                     dispatch(authActions.resetAuthState());
@@ -87,4 +86,4 @@ export const AuthForm = ({ className, onCancel }: AuthFormProps) => {
             </form>
         </AsyncReducerLoader>
     );
-};
+});

@@ -1,16 +1,11 @@
+import { memo } from 'react';
 import { Theme, useTheme } from '07-shared/lib/components/ThemeProvider';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import SunIcon from '07-shared/assets/icons/sun.svg';
 import MoonIcon from '07-shared/assets/icons/moon.svg';
 import classes from './ThemeSwitcher.module.scss';
 
-interface ThemeSwitcherProps {
-    className?: string;
-}
-
-export const ThemeSwitcher = ({
-    className,
-}: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(() => {
     const { theme, toggleTheme } = useTheme();
 
     const onClick = () => {
@@ -19,7 +14,7 @@ export const ThemeSwitcher = ({
     return (
         <button
             type="button"
-            className={classNames(classes.ThemeSwitcher, {}, [className])}
+            className={classes.ThemeSwitcher}
             onClick={onClick}
         >
             <div className={classNames(classes.switcher, {
@@ -31,4 +26,4 @@ export const ThemeSwitcher = ({
             <SunIcon />
         </button>
     );
-};
+});

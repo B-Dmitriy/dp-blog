@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Auth } from '05-features/Auth';
 import { LangSwitcher } from '05-features/LangSwitcher';
@@ -10,7 +11,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
     return (
@@ -42,4 +43,4 @@ export const Navbar = ({ className }: NavbarProps) => {
             </div>
         </header>
     );
-};
+});

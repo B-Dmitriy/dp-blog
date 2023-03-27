@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Button } from '07-shared/ui/Button/Button';
 import { Modal } from '07-shared/ui/Modal/Modal';
 import { Portal } from '07-shared/lib/components/Portal/Portal';
 import { Input } from '07-shared/ui/Input/Input';
 import VK from '07-shared/assets/icons/vk.svg';
 
-const MainPage = () => {
+const MainPage = memo(() => {
     const [error, setError] = useState(false);
     const [modal, setModal] = useState(false);
 
@@ -65,6 +65,6 @@ const MainPage = () => {
             <Input value="test" onChange={() => {}} modification="cleaner" />
         </div>
     );
-};
+});
 
 export default MainPage;
