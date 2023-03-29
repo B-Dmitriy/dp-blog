@@ -1,0 +1,11 @@
+.ProfileCard {
+  .editBtn {
+    svg {
+      margin-left: 8px;
+
+      path {
+        fill: var(--inverted-text-color);
+      }
+    }
+  }
+}

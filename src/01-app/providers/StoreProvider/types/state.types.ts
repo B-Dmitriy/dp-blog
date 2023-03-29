@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import type { AuthInitialState } from '05-features/Auth';
 import type { UserInitialState } from '06-entities/User';
+import type { ProfileSliceState } from '06-entities/Profile';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { AxiosInstance } from 'axios';
@@ -17,6 +18,7 @@ export interface RootState {
 
     // Async reducers
     auth?: AuthInitialState,
+    profile?: ProfileSliceState,
 }
 
 export interface ReduxProviderProps {
