@@ -22,7 +22,7 @@ const profileSlice = createSlice({
                 state.isLoading = false;
             })
             .addCase(getProfile.rejected, (state, action) => {
-                state.error = action.payload;
+                state.error = action.payload || '';
                 state.isLoading = true;
             });
     },

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { ThunkConfig } from '01-app/providers/StoreProvider';
 import type { Profile } from '../../../types/profile.types';
 
-export const getProfile = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const getProfile = createAsyncThunk<Profile, void, ThunkConfig>(
     'profile/getProfile',
     async (_, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
