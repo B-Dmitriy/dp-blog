@@ -21,15 +21,15 @@ export const AsyncReducerLoader = ({
     const store = useStore() as StoreWithReducerManager;
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([reducerName, reducer]: ReducerListTuple) => {
-            store.reducerManager.add(reducerName, reducer);
+        Object.entries(reducers).forEach(([reducerName, reducer]) => {
+            store.reducerManager.add(reducerName as RootStateKey, reducer);
             dispatch({ type: `@INIT ${reducerName}` });
         });
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([reducerName, _]: ReducerListTuple) => {
-                    store.reducerManager.remove(reducerName);
+                Object.entries(reducers).forEach(([reducerName, _]) => {
+                    store.reducerManager.remove(reducerName as RootStateKey);
                     dispatch({ type: `@UNMOUNT ${reducerName}` });
                 });
             }

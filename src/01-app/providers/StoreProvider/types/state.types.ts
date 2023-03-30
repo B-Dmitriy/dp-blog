@@ -42,10 +42,10 @@ export interface StoreWithReducerManager extends EnhancedStore<RootState> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate: (to: To, options?: NavigateOptions) => void
+    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
-export interface ThunkConfig<T> {
+export interface ThunkConfig<T = string> {
     rejectValue: T;
     extra: ThunkExtraArg;
 }
