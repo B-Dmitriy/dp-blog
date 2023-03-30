@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from '07-shared/lib/testsHelpers/TestAsynkThunk';
 import type { Profile } from '06-entities/Profile/types/profile.types';
-import { getProfile } from './getProfile';
+import { fetchProfile } from './fetchProfile';
 
 const mockedResponse: Profile = {
     username: 'Test',
@@ -15,9 +15,9 @@ const mockedResponse: Profile = {
 
 describe('getProfile', () => {
     it('should be return profile', async () => {
-        const thunk = new TestAsyncThunk(getProfile);
+        const thunk = new TestAsyncThunk(fetchProfile);
 
-        thunk.api.post.mockReturnValue(Promise.resolve({
+        thunk.api.get.mockReturnValue(Promise.resolve({
             data: mockedResponse,
         }));
 
@@ -28,9 +28,9 @@ describe('getProfile', () => {
     });
 
     it('should be return profile error', async () => {
-        const thunk = new TestAsyncThunk(getProfile);
+        const thunk = new TestAsyncThunk(fetchProfile);
 
-        thunk.api.post.mockReturnValue(Promise.reject());
+        thunk.api.get.mockReturnValue(Promise.reject());
 
         const result = await thunk.callThunk();
 
