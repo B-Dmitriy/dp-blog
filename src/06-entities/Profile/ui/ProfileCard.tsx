@@ -3,10 +3,10 @@ import { getProfileInfo, getProfileIsLoading } from '06-entities/Profile/model/s
 import { Text } from '07-shared/ui/Text/Text';
 import { Input } from '07-shared/ui/Input/Input';
 import { Button } from '07-shared/ui/Button/Button';
-import { Loader } from '07-shared/ui/Loader/Loader';
 import IconEdit from '07-shared/assets/icons/edit.svg';
 import { useAppSelector } from '07-shared/lib/hooks/app';
 import { classNames } from '07-shared/lib/classNames/classNames';
+import { PageLoader } from '07-shared/ui/PageLoader/PageLoader';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -19,7 +19,7 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
     const profile = useAppSelector(getProfileInfo);
     const isLoading = useAppSelector(getProfileIsLoading);
 
-    if (isLoading) return <Loader />;
+    if (isLoading) return <PageLoader />;
     if (!profile) return <div>Не авторизован</div>;
 
     return (

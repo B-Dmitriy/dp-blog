@@ -43,6 +43,9 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/mouse-events-have-key-events': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-noninteractive-element-interactions': 'off',
         'no-underscore-dangle': 'off',
         // 'i18next/no-literal-string': ['error', {
         //     markupOnly: true,
