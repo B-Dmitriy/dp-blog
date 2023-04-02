@@ -8,14 +8,14 @@ import { ThemeProvider } from '07-shared/lib/components/ThemeProvider';
 import App from './01-app/App';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <StoreProvider>
+    <StoreProvider>
+        <BrowserRouter>
             <ErrorBoundary>
                 <ThemeProvider>
                     <App />
                 </ThemeProvider>
             </ErrorBoundary>
-        </StoreProvider>
-    </BrowserRouter>,
+        </BrowserRouter>
+    </StoreProvider>,
     document.getElementById('root'),
 );

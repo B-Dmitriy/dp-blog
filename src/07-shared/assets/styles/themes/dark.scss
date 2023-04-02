@@ -20,6 +20,7 @@
     --divider: var(--divider-dark-1);
     --divider-hover: var(--gray);
     --text-color: var(--text-dark-1);
+    --text-hover: var(--gray-light-1);
     --text-secondary: var(--text-dark-2);
     --input-border: var(--gray-light-2);
     --input-hover: var(--gray);
@@ -30,4 +31,5 @@
     --input-bg: var(--bg-color-mute);
     --inverted-text-color: var(--text-light-1);
     --modal-border-color: var(--gray-dark-2);
+    --dropdown-item-hover: var(--bg-color-mute);
 }

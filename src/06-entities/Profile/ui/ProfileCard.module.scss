@@ -1,4 +1,6 @@
 .ProfileCard {
+    min-height: calc(100vh - var(--navbar-height));
+
     .editBtn {
         svg {
             margin-left: 8px;

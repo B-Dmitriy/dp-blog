@@ -1,11 +1,12 @@
 import { Provider } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import type { To } from 'history';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 import type { ReduxProviderProps, RootState } from '01-app/providers/StoreProvider/types/state.types';
 import { createReduxStore } from '../model/store';
 
 export const StoreProvider = ({ children, initialState, asyncReducers }: ReduxProviderProps) => {
-    const navigate = useNavigate();
+    const navigate = (to: To) => <Navigate to={to} />;
 
     const store = createReduxStore(
         initialState as RootState,
