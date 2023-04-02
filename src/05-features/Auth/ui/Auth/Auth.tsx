@@ -1,5 +1,7 @@
-import { memo, useCallback, useState } from 'react';
-import { getUser } from '06-entities/User/model/selectors/userSelectors';
+import {
+    memo, useCallback, useState,
+} from 'react';
+import { getUser } from '06-entities/User';
 import UserIcon from '07-shared/assets/icons/user.svg';
 import { Button } from '07-shared/ui/Button/Button';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
