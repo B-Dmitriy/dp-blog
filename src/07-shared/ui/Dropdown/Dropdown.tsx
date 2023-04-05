@@ -33,12 +33,10 @@ export const Dropdown = memo(({
     return (
         <div
             onMouseOver={showDropdown}
+            onMouseOut={hideDropdown}
             className={classNames(classes.Dropdown, {}, [className])}
         >
-            <div
-                onMouseOut={hideDropdown}
-                className={classes.root}
-            >
+            <div className={classes.root}>
                 <span className={classNames(classes.children, {
                     [classes.open]: isOpen,
                 })}

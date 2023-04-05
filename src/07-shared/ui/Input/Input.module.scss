@@ -4,6 +4,10 @@
     padding: 4px 0 16px;
     color: var(--text-color);
 
+    &.readOnly {
+        padding: 4px 0;
+    }
+
     .label {
         display: flex;
         align-items: baseline;
@@ -48,6 +52,23 @@
                     border-color: var(--input-error);
                 }
 
+                &.readOnly {
+                    background-color: transparent;
+                    border-color: transparent;
+                    padding: 4px 8px;
+
+                    &:hover {
+                        background-color: transparent;
+                        border-color: transparent;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        background-color: transparent;
+                        border-color: transparent;
+                    }
+                }
+
                 &:hover {
                     border-color: var(--input-hover);
                 }
@@ -62,6 +83,7 @@
                     color: var(--input-disabled-text);
                     border-color: var(--input-disabled);
                 }
+
             }
         }
 
