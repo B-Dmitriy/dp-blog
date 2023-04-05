@@ -52,7 +52,7 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
             />
             <Select
                 value={selectValue}
-                options={['one', 'two', 'three']}
+                options={['one', 'two', 'three three three three three three']}
                 onSelect={setSelectValue}
             />
         </div>

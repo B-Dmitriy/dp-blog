@@ -1,5 +1,6 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { useState } from 'react';
+import { memo, useState } from 'react';
+import ArrowDown from '../../assets/icons/arrow-down.svg';
 import classes from './Select.module.scss';
 
 interface SelectProps {
@@ -9,8 +10,11 @@ interface SelectProps {
     className?: string;
 }
 
-export const Select = ({
-    value, options, onSelect, className,
+export const Select = memo(({
+    value,
+    options,
+    onSelect,
+    className,
 }: SelectProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -20,21 +24,34 @@ export const Select = ({
 
     return (
         <div className={classNames(classes.Select, {}, [className])}>
-            <div onClick={onValueClick}>{value}</div>
-            {isOpen && (
-                <ul>
-                    {options.map((item) => (
-                        <li
-                            onClick={() => {
-                                onSelect(item);
-                                setIsOpen(false);
-                            }}
-                        >
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-            )}
+            <button
+                type="button"
+                className={classNames(classes.value, {
+                    [classes.open]: isOpen,
+                })}
+                onClick={onValueClick}
+            >
+                <span className={classes.title}>{value}</span>
+                <ArrowDown />
+            </button>
+            <div className={classNames(classes.list, {
+                [classes.open]: isOpen,
+            })}
+            >
+                {options.map((item) => (
+                    <button
+                        type="button"
+                        tabIndex={0}
+                        className={classes.listItem}
+                        onClick={() => {
+                            onSelect(item);
+                            setIsOpen(false);
+                        }}
+                    >
+                        {item}
+                    </button>
+                ))}
+            </div>
         </div>
     );
-};
+});
