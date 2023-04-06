@@ -1,5 +1,7 @@
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { memo, PropsWithChildren, useState } from 'react';
+import {
+    memo, MutableRefObject, PropsWithChildren, useEffect, useRef, useState,
+} from 'react';
 import classes from './Dropdown.module.scss';
 
 type DropdownItem = { label: string; value: string; };
@@ -17,6 +19,7 @@ export const Dropdown = memo(({
     onSelect,
     className,
 }: PropsWithChildren<DropdownProps>) => {
+    const mountedRef = useRef(false) as MutableRefObject<boolean>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const showDropdown = () => setIsOpen(true);
@@ -29,6 +32,13 @@ export const Dropdown = memo(({
         setIsOpen(false);
         onSelect(item);
     };
+
+    useEffect(() => {
+        mountedRef.current = true;
+        return () => {
+            mountedRef.current = false;
+        };
+    }, []);
 
     return (
         <div
@@ -46,6 +56,7 @@ export const Dropdown = memo(({
                 <ul
                     className={classNames(classes.list, {
                         [classes.open]: isOpen,
+                        [classes.mounted]: mountedRef.current,
                     })}
                 >
                     {list.map((item) => (

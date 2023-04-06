@@ -30,9 +30,12 @@
             border: 1px solid var(--divider);
             padding: 4px 0;
             border-radius: var(--border-radius);
-            animation: hide;
-            animation-duration: var(--transition-time-main);
             pointer-events: none;
+
+            &.mounted {
+                animation: hide;
+                animation-duration: var(--transition-time-main);
+            }
 
             &.open {
                 opacity: 1;

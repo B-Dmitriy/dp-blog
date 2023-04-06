@@ -1,5 +1,8 @@
+import {
+    memo, MutableRefObject, useEffect, useRef, useState,
+} from 'react';
+import { nanoid } from '@reduxjs/toolkit';
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { memo, useState } from 'react';
 import ArrowDown from '../../assets/icons/arrow-down.svg';
 import classes from './Select.module.scss';
 
@@ -16,11 +19,17 @@ export const Select = memo(({
     onSelect,
     className,
 }: SelectProps) => {
+    const mountedRef = useRef(false) as MutableRefObject<boolean>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const onValueClick = () => {
-        setIsOpen((prev) => !prev);
-    };
+    const onValueClick = () => setIsOpen((prev) => !prev);
+
+    useEffect(() => {
+        mountedRef.current = true;
+        return () => {
+            mountedRef.current = false;
+        };
+    }, []);
 
     return (
         <div className={classNames(classes.Select, {}, [className])}>
@@ -36,10 +45,12 @@ export const Select = memo(({
             </button>
             <div className={classNames(classes.list, {
                 [classes.open]: isOpen,
+                [classes.mounted]: mountedRef.current,
             })}
             >
                 {options.map((item) => (
                     <button
+                        key={nanoid()}
                         type="button"
                         tabIndex={0}
                         className={classes.listItem}
