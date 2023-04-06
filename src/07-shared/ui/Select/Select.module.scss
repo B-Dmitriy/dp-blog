@@ -1,0 +1,104 @@
+.Select {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 200px;
+
+    .value {
+        cursor: default;
+        width: 100%;
+        color: var(--text-color);
+        border: 1px solid var(--input-border);
+        border-radius: 4px;
+        padding: 4px 8px;
+        transition: border-color var(--transition-time-main);
+        background-color: var(--input-bg);
+        min-width: 150px;
+        text-align: start;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            width: calc(100% - 20px);
+        }
+
+        svg {
+            transition: var(--transition-time-main);
+
+            path {
+                fill: var(--text-color);
+            }
+        }
+
+        &.open {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .list {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        opacity: 0;
+        background-color: var(--bg-color);
+        border: 1px solid var(--divider);
+        padding: 4px 0;
+        border-radius: var(--border-radius);
+        pointer-events: none;
+
+        &.mounted {
+            animation: hide;
+            animation-duration: var(--transition-time-main);
+        }
+
+        &.open {
+            opacity: 1;
+            animation: show;
+            animation-duration: var(--transition-time-main);
+            pointer-events: auto;
+        }
+
+        .listItem {
+            cursor: default;
+            list-style-type: none;
+            color: var(--text-color);
+            padding: 4px;
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            text-align: start;
+
+            &:hover {
+                background-color: var(--dropdown-item-hover);
+            }
+        }
+    }
+}
+
+@keyframes show {
+    0% {
+        transform: translateY(-8px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-8px);
+        opacity: 0;
+    }
+}

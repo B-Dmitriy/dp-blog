@@ -4,6 +4,10 @@
     padding: 4px 0 16px;
     color: var(--text-color);
 
+    &.readOnly {
+        padding: 4px 0;
+    }
+
     .label {
         display: flex;
         align-items: baseline;
@@ -46,6 +50,23 @@
 
                 &.rootError {
                     border-color: var(--input-error);
+                }
+
+                &.readOnly {
+                    background-color: transparent;
+                    border-color: transparent;
+                    padding: 4px 8px;
+
+                    &:hover {
+                        background-color: transparent;
+                        border-color: transparent;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        background-color: transparent;
+                        border-color: transparent;
+                    }
                 }
 
                 &:hover {

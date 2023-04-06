@@ -27,6 +27,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = memo(({
+    readOnly = false,
     disabled = false,
     type, // Достаём значение, что бы оно не перезаписало type внутри
     view = 'primary',
@@ -67,7 +68,10 @@ export const Input = memo(({
     };
 
     return (
-        <div className={classNames(classes.Input, {}, [className])}>
+        <div className={classNames(classes.Input, {
+            [classes.readOnly]: readOnly,
+        }, [className])}
+        >
             <label
                 htmlFor="text_input"
                 className={classNames(classes.label, {
@@ -77,12 +81,14 @@ export const Input = memo(({
                 {label && <span className={classes.text}>{label}</span>}
                 <div className={classes.root}>
                     <input
+                        readOnly={readOnly}
                         disabled={disabled}
                         name="text_input"
                         type={isFieldOpen ? 'text' : 'password'}
                         className={classNames(classes.input, {
                             [classes.clear]: view === 'clear',
                             [classes.rootError]: !!error,
+                            [classes.readOnly]: readOnly,
                         })}
                         maxLength={maxLength}
                         autoComplete="new-password"
