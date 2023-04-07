@@ -1,5 +1,7 @@
-import { TestAsyncThunk } from '07-shared/lib/testsHelpers/TestAsynkThunk';
+import { Currency } from '06-entities/Currency';
+import { Country } from '06-entities/Country';
 import type { Profile } from '06-entities/Profile/types/profile.types';
+import { TestAsyncThunk } from '07-shared/lib/testsHelpers/TestAsynkThunk';
 import { fetchProfile } from './fetchProfile';
 
 const mockedResponse: Profile = {
@@ -7,9 +9,9 @@ const mockedResponse: Profile = {
     first: 'First',
     lastname: 'Last',
     age: 20,
-    country: 'Russia',
-    city: 'Moskow',
-    currency: 'RUB',
+    country: Country.RUS,
+    city: 'Moscow',
+    currency: Currency.RUB,
     avatar: 'http://image.address',
 };
 

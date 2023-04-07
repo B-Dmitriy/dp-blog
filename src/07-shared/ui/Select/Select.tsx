@@ -19,6 +19,7 @@ export const Select = memo(({
     onSelect,
     className,
 }: SelectProps) => {
+    const listRef = useRef<HTMLDivElement | null>(null);
     const mountedRef = useRef(false) as MutableRefObject<boolean>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -30,6 +31,19 @@ export const Select = memo(({
             mountedRef.current = false;
         };
     }, []);
+
+    useEffect(() => {
+        const clickListener = (e: MouseEvent) => {
+            if (isOpen && !listRef?.current?.contains(e.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+        document.body.addEventListener('click', clickListener);
+
+        return () => {
+            document.body.removeEventListener('click', clickListener);
+        };
+    }, [isOpen]);
 
     return (
         <div className={classNames(classes.Select, {}, [className])}>
@@ -43,10 +57,12 @@ export const Select = memo(({
                 <span className={classes.title}>{value}</span>
                 <ArrowDown />
             </button>
-            <div className={classNames(classes.list, {
-                [classes.open]: isOpen,
-                [classes.mounted]: mountedRef.current,
-            })}
+            <div
+                ref={listRef}
+                className={classNames(classes.list, {
+                    [classes.open]: isOpen,
+                    [classes.mounted]: mountedRef.current,
+                })}
             >
                 {options.map((item) => (
                     <button
