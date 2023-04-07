@@ -9,6 +9,8 @@ import classes from './Select.module.scss';
 interface SelectProps {
     value: string;
     options: string[];
+    label?: string;
+    labelPosition?: 'top' | 'left';
     onSelect: (item: string) => void;
     className?: string;
 }
@@ -16,6 +18,8 @@ interface SelectProps {
 export const Select = memo(({
     value,
     options,
+    label,
+    labelPosition = 'top',
     onSelect,
     className,
 }: SelectProps) => {
@@ -47,38 +51,50 @@ export const Select = memo(({
 
     return (
         <div className={classNames(classes.Select, {}, [className])}>
-            <button
-                type="button"
-                className={classNames(classes.value, {
-                    [classes.open]: isOpen,
+            <label
+                className={classNames(classes.label, {
+                    [classes.topLabel]: labelPosition === 'top',
                 })}
-                onClick={onValueClick}
+                htmlFor="select_button"
             >
-                <span className={classes.title}>{value}</span>
-                <ArrowDown />
-            </button>
-            <div
-                ref={listRef}
-                className={classNames(classes.list, {
-                    [classes.open]: isOpen,
-                    [classes.mounted]: mountedRef.current,
-                })}
-            >
-                {options.map((item) => (
+                {label && <span className={classes.text}>{label}</span>}
+                <div className={classes.root}>
                     <button
-                        key={nanoid()}
                         type="button"
-                        tabIndex={0}
-                        className={classes.listItem}
-                        onClick={() => {
-                            onSelect(item);
-                            setIsOpen(false);
-                        }}
+                        name="select_button"
+                        className={classNames(classes.value, {
+                            [classes.open]: isOpen,
+                        })}
+                        onClick={onValueClick}
                     >
-                        {item}
+                        <span className={classes.title}>{value}</span>
+                        <ArrowDown />
                     </button>
-                ))}
-            </div>
+                    <div
+                        ref={listRef}
+                        className={classNames(classes.list, {
+                            [classes.open]: isOpen,
+                            [classes.mounted]: mountedRef.current,
+                        })}
+                    >
+                        {options.map((item) => (
+                            <button
+                                disabled={!isOpen}
+                                key={nanoid()}
+                                type="button"
+                                tabIndex={0}
+                                className={classes.listItem}
+                                onClick={() => {
+                                    onSelect(item);
+                                    setIsOpen(false);
+                                }}
+                            >
+                                {item}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </label>
         </div>
     );
 });

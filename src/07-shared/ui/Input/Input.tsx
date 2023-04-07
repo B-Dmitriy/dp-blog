@@ -68,10 +68,7 @@ export const Input = memo(({
     };
 
     return (
-        <div className={classNames(classes.Input, {
-            [classes.readOnly]: readOnly,
-        }, [className])}
-        >
+        <div className={classNames(classes.Input, {}, [className])}>
             <label
                 htmlFor="text_input"
                 className={classNames(classes.label, {

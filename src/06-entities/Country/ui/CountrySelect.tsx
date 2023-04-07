@@ -5,10 +5,19 @@ import { memo, useCallback } from 'react';
 
 interface CountrySelectorProps {
     value: Country;
+    label?: string;
+    labelPosition?: 'top' | 'left';
     onSelect: (newValue: Country) => void;
+    className?: string;
 }
 
-export const CountrySelector = memo(({ value, onSelect }: CountrySelectorProps) => {
+export const CountrySelect = memo(({
+    value,
+    label,
+    labelPosition = 'top',
+    onSelect,
+    className,
+}: CountrySelectorProps) => {
     const countries = useCountryList();
 
     const onSelectHandler = useCallback((newValue: string) => {
@@ -18,8 +27,11 @@ export const CountrySelector = memo(({ value, onSelect }: CountrySelectorProps) 
     return (
         <Select
             value={value}
+            label={label}
+            labelPosition={labelPosition}
             onSelect={onSelectHandler}
             options={countries}
+            className={className}
         />
     );
 });
