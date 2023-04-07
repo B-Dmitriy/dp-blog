@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getProfileInfo, getProfileIsLoading } from '06-entities/Profile/model/selectors/profileSelectors';
+import { Country } from '06-entities/Country/types/country.types';
+import { CountrySelector } from '06-entities/Country/ui/CountrySelector';
+import { Currency, CurrencySelect } from '06-entities/Currency';
 import { Text } from '07-shared/ui/Text/Text';
 import { Input } from '07-shared/ui/Input/Input';
 import { Button } from '07-shared/ui/Button/Button';
-import { Select } from '07-shared/ui/Select/Select';
 import IconEdit from '07-shared/assets/icons/edit.svg';
 import { useAppSelector } from '07-shared/lib/hooks/app';
 import { PageLoader } from '07-shared/ui/PageLoader/PageLoader';
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { useState } from 'react';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -22,7 +24,6 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
     const isLoading = useAppSelector(getProfileIsLoading);
 
     const [readonlyMode, setReadonlyMode] = useState<boolean>(false);
-    const [selectValue, setSelectValue] = useState<string>('one');
 
     if (isLoading) return <PageLoader />;
     if (!profile) return <div>Не авторизован</div>;
@@ -50,11 +51,16 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
                 value={profile.lastname}
                 onChange={(val) => console.log(val)}
             />
-            <Select
-                value={selectValue}
-                options={['one', 'two', 'three three three three three three']}
-                onSelect={setSelectValue}
-            />
+            <div style={{ display: 'flex' }}>
+                <CountrySelector
+                    value={profile.country}
+                    onSelect={(str: Country) => console.log(str)}
+                />
+                <CurrencySelect
+                    value={profile.currency}
+                    onSelect={(str: Currency) => console.log(str)}
+                />
+            </div>
         </div>
     );
 };

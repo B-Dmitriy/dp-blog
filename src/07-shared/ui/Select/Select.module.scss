@@ -49,6 +49,7 @@
         padding: 4px 0;
         border-radius: var(--border-radius);
         pointer-events: none;
+        z-index: 1;
 
         &.mounted {
             animation: hide;
