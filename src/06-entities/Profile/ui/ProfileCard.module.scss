@@ -2,16 +2,6 @@
     min-height: calc(100vh - var(--navbar-height));
     padding: 16px;
 
-    .editBtn {
-        svg {
-            margin-left: 8px;
-
-            path {
-                fill: var(--inverted-text-color);
-            }
-        }
-    }
-
     .infoField {
         display: flex;
         align-items: center;

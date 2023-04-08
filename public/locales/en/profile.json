@@ -1,4 +1,14 @@
 {
   "profile": "Profile",
-  "edit_profile": "Profile edit"
+  "edit_profile": "Edit",
+  "save": "Save",
+  "cancel": "Cancel",
+  "username": "Username: ",
+  "firstname": "Firstname: ",
+  "lastname": "Lastname: ",
+  "age": "Age: ",
+  "city": "City: ",
+  "country": "Country: ",
+  "currency": "Currency: ",
+  "avatar": "Avatar: "
 }

@@ -15,5 +15,6 @@ export interface Profile {
 export interface ProfileSliceState {
     isLoading: boolean;
     profile: Profile | null;
+    profileForm: Profile;
     error: string;
 }

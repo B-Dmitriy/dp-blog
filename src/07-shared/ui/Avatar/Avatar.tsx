@@ -10,7 +10,10 @@ interface AvatarProps {
 }
 
 export const Avatar = memo(({
-    src, alt, size, className,
+    src,
+    alt,
+    size,
+    className,
 }: AvatarProps) => (
     <img
         className={classNames(classes.Avatar, {}, [className, classes[size]])}
