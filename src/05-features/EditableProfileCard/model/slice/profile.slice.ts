@@ -3,20 +3,23 @@ import { fetchProfile } from '06-entities/Profile';
 import { Country } from '06-entities/Country';
 import { Currency } from '06-entities/Currency';
 import type { Profile, ProfileSliceState } from '06-entities/Profile';
+import { updateProfile } from '05-features/EditableProfileCard/model/services/updateProfile/updateProfile';
+
+const initialForm = {
+    avatar: '',
+    username: '',
+    first: '',
+    lastname: '',
+    age: 0,
+    city: '',
+    country: Country.RUS,
+    currency: Currency.RUB,
+};
 
 const initialState: ProfileSliceState = {
     isLoading: false,
     profile: null,
-    profileForm: {
-        avatar: '',
-        username: '',
-        first: '',
-        lastname: '',
-        age: 0,
-        city: '',
-        country: Country.RUS,
-        currency: Currency.RUB,
-    },
+    profileForm: initialForm,
     error: '',
 };
 
@@ -48,6 +51,13 @@ const editableProfileSlice = createSlice({
         onCurrencyChange(state, action: PayloadAction<Currency>) {
             state.profileForm.currency = action.payload;
         },
+        resetForm(state) {
+            if (state.profile) {
+                state.profileForm = state.profile;
+            } else {
+                state.profileForm = initialForm;
+            }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -61,7 +71,19 @@ const editableProfileSlice = createSlice({
             })
             .addCase(fetchProfile.rejected, (state, action) => {
                 state.error = action.payload || '';
+                state.isLoading = false;
+            })
+            .addCase(updateProfile.pending, (state) => {
                 state.isLoading = true;
+            })
+            .addCase(updateProfile.fulfilled, (state, action: PayloadAction<Profile>) => {
+                state.profile = action.payload;
+                state.profileForm = action.payload;
+                state.isLoading = false;
+            })
+            .addCase(updateProfile.rejected, (state, action) => {
+                state.error = action.payload || '';
+                state.isLoading = false;
             });
     },
 });

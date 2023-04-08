@@ -7,7 +7,7 @@ import { AsyncReducerLoader, ReducerList } from '07-shared/lib/components';
 import classes from './ProfilePage.module.scss';
 
 const reducers: ReducerList = {
-    profile: editableProfileReducer,
+    editableProfile: editableProfileReducer,
 };
 
 interface ProfilePageProps {

@@ -4,9 +4,8 @@ import { Country } from '06-entities/Country/types/country.types';
 import { CountrySelect } from '06-entities/Country';
 import { Currency, CurrencySelect } from '06-entities/Currency';
 import { Input } from '07-shared/ui/Input/Input';
-import { PageLoader } from '07-shared/ui/PageLoader/PageLoader';
+import { Loader } from '07-shared/ui/Loader/Loader';
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { Avatar } from '07-shared/ui/Avatar/Avatar';
 import { Profile } from '../types/profile.types';
 import classes from './ProfileCard.module.scss';
 
@@ -39,7 +38,13 @@ export const ProfileCard = memo(({
 }: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
-    if (isLoading) return <PageLoader />;
+    if (isLoading) {
+        return (
+            <section style={{ minHeight: '300px', width: '100%' }}>
+                <Loader />
+            </section>
+        );
+    }
     if (!profile) return <div>Не авторизован</div>;
     if (error) return <div>{error}</div>;
 

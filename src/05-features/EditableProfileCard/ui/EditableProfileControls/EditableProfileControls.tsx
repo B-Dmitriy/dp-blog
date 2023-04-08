@@ -8,16 +8,22 @@ import { Avatar } from '07-shared/ui/Avatar/Avatar';
 import classes from './EditableProfileControls.module.scss';
 
 interface EditableProfileHeaderProps {
+    isLoading?: boolean;
     avatar: string | undefined | null;
     readonlyMode: boolean;
     toggleReadonlyMode: () => void;
+    onCancel: () => void;
+    onSubmit: () => void;
     className?: string;
 }
 
 export const EditableProfileControls = memo(({
+    isLoading = false,
     avatar,
     readonlyMode,
     toggleReadonlyMode,
+    onCancel,
+    onSubmit,
     className,
 }: EditableProfileHeaderProps) => {
     const { t } = useTranslation('profile');
@@ -32,6 +38,7 @@ export const EditableProfileControls = memo(({
                 {readonlyMode
                     ? (
                         <Button
+                            disabled={isLoading}
                             className={classes.editBtn}
                             view="secondary"
                             onClick={toggleReadonlyMode}
@@ -43,14 +50,17 @@ export const EditableProfileControls = memo(({
                     : (
                         <>
                             <Button
+                                disabled={isLoading}
                                 className={classes.cancelBtn}
                                 view="outline"
-                                onClick={toggleReadonlyMode}
+                                onClick={onCancel}
                             >
                                 {t('cancel')}
                             </Button>
                             <Button
+                                disabled={isLoading}
                                 view="primary"
+                                onClick={onSubmit}
                             >
                                 {t('save')}
                             </Button>

@@ -68,23 +68,24 @@
                 position: absolute;
                 top: 100%;
                 right: 0;
-                opacity: 0;
                 background-color: var(--bg-color);
                 border: 1px solid var(--divider);
                 padding: 4px 0;
                 border-radius: var(--border-radius);
                 pointer-events: none;
                 z-index: 1;
+                opacity: 0;
+                transition: var(--transition-time-main);
+                transform: translateY(-8px);
 
-                &.mounted {
-                    animation: hide;
-                    animation-duration: var(--transition-time-main);
+                &.closes {
+                    transform: translateY(-8px);
+                    opacity: 0;
                 }
 
                 &.open {
+                    transform: translateY(0);
                     opacity: 1;
-                    animation: show;
-                    animation-duration: var(--transition-time-main);
                     pointer-events: auto;
                 }
 
@@ -104,29 +105,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes show {
-    0% {
-        transform: translateY(-8px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes hide {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-8px);
-        opacity: 0;
     }
 }

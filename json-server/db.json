@@ -1,18 +1,26 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "profile": {
-    "first": "Firstname",
-    "lastname": "Lastname",
-    "age": 29,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
     "username": "admin",
+    "first": "Dmitriy",
+    "lastname": "Sergeevich",
+    "age": 30,
+    "city": "Moscow",
+    "country": "Russia",
+    "currency": "RUB",
     "avatar": "https://www.tursar.ru/image/img2325_0.jpg"
   },
   "users": [

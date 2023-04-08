@@ -24,27 +24,32 @@ export const Select = memo(({
     className,
 }: SelectProps) => {
     const listRef = useRef<HTMLDivElement | null>(null);
-    const mountedRef = useRef(false) as MutableRefObject<boolean>;
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isClosing, setIsClosing] = useState<boolean>(false);
 
-    const onValueClick = () => setIsOpen((prev) => !prev);
+    const onValueClick = () => {
+        setIsOpen((prev) => !prev);
+    };
 
-    useEffect(() => {
-        mountedRef.current = true;
-        return () => {
-            mountedRef.current = false;
-        };
-    }, []);
+    const closeHandler = () => {
+        setIsClosing(true);
+        timerRef.current = setTimeout(() => {
+            setIsOpen(false);
+            setIsClosing(false);
+        }, 150);
+    };
 
     useEffect(() => {
         const clickListener = (e: MouseEvent) => {
             if (isOpen && !listRef?.current?.contains(e.target as Node)) {
-                setIsOpen(false);
+                closeHandler();
             }
         };
         document.body.addEventListener('click', clickListener);
 
         return () => {
+            clearTimeout(timerRef.current);
             document.body.removeEventListener('click', clickListener);
         };
     }, [isOpen]);
@@ -74,7 +79,7 @@ export const Select = memo(({
                         ref={listRef}
                         className={classNames(classes.list, {
                             [classes.open]: isOpen,
-                            [classes.mounted]: mountedRef.current,
+                            [classes.closes]: isClosing,
                         })}
                     >
                         {options.map((item) => (

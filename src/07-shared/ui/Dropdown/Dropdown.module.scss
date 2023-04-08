@@ -31,16 +31,17 @@
             padding: 4px 0;
             border-radius: var(--border-radius);
             pointer-events: none;
+            transition: var(--transition-time-main);
+            transform: translateY(-8px);
 
-            &.mounted {
-                animation: hide;
-                animation-duration: var(--transition-time-main);
+            &.closing {
+                transform: translateY(-8px);
+                opacity: 0;
             }
 
             &.open {
                 opacity: 1;
-                animation: show;
-                animation-duration: var(--transition-time-main);
+                transform: translateY(0);
                 pointer-events: auto;
             }
 
@@ -55,29 +56,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes show {
-    0% {
-        transform: translateY(-8px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes hide {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-8px);
-        opacity: 0;
     }
 }
