@@ -18,7 +18,7 @@ export interface RootState {
 
     // Async reducers
     auth?: AuthInitialState,
-    profile?: ProfileSliceState,
+    editableProfile?: ProfileSliceState,
 }
 
 export interface ReduxProviderProps {

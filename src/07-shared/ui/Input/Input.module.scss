@@ -1,12 +1,8 @@
 .Input {
     position: relative;
     max-width: 400px;
-    padding: 4px 0 16px;
     color: var(--text-color);
-
-    &.readOnly {
-        padding: 4px 0;
-    }
+    padding-bottom: 16px;
 
     .label {
         display: flex;
@@ -14,6 +10,7 @@
         min-height: var(--font-line-s);
 
         .text {
+            width: 120px;
             padding: 0 8px 0 4px;
         }
 

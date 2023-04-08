@@ -9,6 +9,8 @@ import classes from './Select.module.scss';
 interface SelectProps {
     value: string;
     options: string[];
+    label?: string;
+    labelPosition?: 'top' | 'left';
     onSelect: (item: string) => void;
     className?: string;
 }
@@ -16,69 +18,88 @@ interface SelectProps {
 export const Select = memo(({
     value,
     options,
+    label,
+    labelPosition = 'top',
     onSelect,
     className,
 }: SelectProps) => {
     const listRef = useRef<HTMLDivElement | null>(null);
-    const mountedRef = useRef(false) as MutableRefObject<boolean>;
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isClosing, setIsClosing] = useState<boolean>(false);
 
-    const onValueClick = () => setIsOpen((prev) => !prev);
+    const onValueClick = () => {
+        setIsOpen((prev) => !prev);
+    };
 
-    useEffect(() => {
-        mountedRef.current = true;
-        return () => {
-            mountedRef.current = false;
-        };
-    }, []);
+    const closeHandler = () => {
+        setIsClosing(true);
+        timerRef.current = setTimeout(() => {
+            setIsOpen(false);
+            setIsClosing(false);
+        }, 150);
+    };
 
     useEffect(() => {
         const clickListener = (e: MouseEvent) => {
             if (isOpen && !listRef?.current?.contains(e.target as Node)) {
-                setIsOpen(false);
+                closeHandler();
             }
         };
         document.body.addEventListener('click', clickListener);
 
         return () => {
+            clearTimeout(timerRef.current);
             document.body.removeEventListener('click', clickListener);
         };
     }, [isOpen]);
 
     return (
         <div className={classNames(classes.Select, {}, [className])}>
-            <button
-                type="button"
-                className={classNames(classes.value, {
-                    [classes.open]: isOpen,
+            <label
+                className={classNames(classes.label, {
+                    [classes.topLabel]: labelPosition === 'top',
                 })}
-                onClick={onValueClick}
+                htmlFor="select_button"
             >
-                <span className={classes.title}>{value}</span>
-                <ArrowDown />
-            </button>
-            <div
-                ref={listRef}
-                className={classNames(classes.list, {
-                    [classes.open]: isOpen,
-                    [classes.mounted]: mountedRef.current,
-                })}
-            >
-                {options.map((item) => (
+                {label && <span className={classes.text}>{label}</span>}
+                <div className={classes.root}>
                     <button
-                        key={nanoid()}
                         type="button"
-                        tabIndex={0}
-                        className={classes.listItem}
-                        onClick={() => {
-                            onSelect(item);
-                            setIsOpen(false);
-                        }}
+                        name="select_button"
+                        className={classNames(classes.value, {
+                            [classes.open]: isOpen,
+                        })}
+                        onClick={onValueClick}
                     >
-                        {item}
+                        <span className={classes.title}>{value}</span>
+                        <ArrowDown />
                     </button>
-                ))}
-            </div>
+                    <div
+                        ref={listRef}
+                        className={classNames(classes.list, {
+                            [classes.open]: isOpen,
+                            [classes.closes]: isClosing,
+                        })}
+                    >
+                        {options.map((item) => (
+                            <button
+                                disabled={!isOpen}
+                                key={nanoid()}
+                                type="button"
+                                tabIndex={0}
+                                className={classes.listItem}
+                                onClick={() => {
+                                    onSelect(item);
+                                    setIsOpen(false);
+                                }}
+                            >
+                                {item}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </label>
         </div>
     );
 });

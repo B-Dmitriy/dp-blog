@@ -1,0 +1,23 @@
+.EditableProfileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+
+    .editBtn {
+        svg {
+            path {
+                fill: var(--inverted-text-color);
+            }
+        }
+    }
+
+    .controls {
+        display: flex;
+        margin-top: 16px;
+
+        .cancelBtn {
+            margin-right: 8px;
+        }
+    }
+}

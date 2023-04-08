@@ -1,4 +1,14 @@
 {
   "profile": "Профиль",
-  "edit_profile": "Редактировать профиль"
+  "edit_profile": "Редактировать",
+  "save": "Сохранить",
+  "cancel": "Отмена",
+  "username": "Логин: ",
+  "firstname": "Имя: ",
+  "lastname": "Фамилия: ",
+  "age": "Возраст: ",
+  "city": "Город: ",
+  "country": "Страна: ",
+  "currency": "Валюта: ",
+  "avatar": "Аватар: "
 }

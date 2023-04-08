@@ -19,34 +19,35 @@ export const Dropdown = memo(({
     onSelect,
     className,
 }: PropsWithChildren<DropdownProps>) => {
-    const mountedRef = useRef(false) as MutableRefObject<boolean>;
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isClosing, setIsClosing] = useState<boolean>(false);
 
     const showDropdown = () => setIsOpen(true);
 
+    const closeHandler = () => {
+        setIsClosing(true);
+        timerRef.current = setTimeout(() => {
+            setIsClosing(false);
+            setIsOpen(false);
+        }, 150);
+    };
+
     const hideDropdown = () => {
-        setIsOpen(false);
+        closeHandler();
     };
 
     const onItemClick = (item: string) => {
-        setIsOpen(false);
         onSelect(item);
+        closeHandler();
     };
-
-    useEffect(() => {
-        mountedRef.current = true;
-        return () => {
-            mountedRef.current = false;
-        };
-    }, []);
 
     return (
         <div
             onMouseOver={showDropdown}
-            onMouseOut={hideDropdown}
             className={classNames(classes.Dropdown, {}, [className])}
         >
-            <div className={classes.root}>
+            <div className={classes.root} onMouseLeave={hideDropdown}>
                 <span className={classNames(classes.children, {
                     [classes.open]: isOpen,
                 })}
@@ -56,7 +57,7 @@ export const Dropdown = memo(({
                 <ul
                     className={classNames(classes.list, {
                         [classes.open]: isOpen,
-                        [classes.mounted]: mountedRef.current,
+                        [classes.mounted]: isClosing,
                     })}
                 >
                     {list.map((item) => (

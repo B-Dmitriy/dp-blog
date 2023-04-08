@@ -1,19 +1,27 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "profile": {
-    "first": "Firstname",
-    "lastname": "Lastname",
-    "age": 29,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
     "username": "admin",
-    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Matthew_McConaughey_2019_%2848648344772%29.jpg/1200px-Matthew_McConaughey_2019_%2848648344772%29.jpg"
+    "first": "Dmitriy",
+    "lastname": "Sergeevich",
+    "age": 30,
+    "city": "Moscow",
+    "country": "Russia",
+    "currency": "RUB",
+    "avatar": "https://www.tursar.ru/image/img2325_0.jpg"
   },
   "users": [
     {
