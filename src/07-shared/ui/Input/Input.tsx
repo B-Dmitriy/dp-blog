@@ -11,7 +11,7 @@ type InputTypes = 'primary' | 'clear';
 type LabelPosition = 'top' | 'left';
 type InputModification = 'counter' | 'icon' | 'cleaner' | 'secret';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
     disabled?: boolean;
     value: string;
     onChangeValue?: (newValue: string) => void;
@@ -29,7 +29,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = memo(({
     readOnly = false,
     disabled = false,
-    type, // Достаём значение, что бы оно не перезаписало type внутри
+    // type, // Достаём значение, что бы оно не перезаписало type внутри
     view = 'primary',
     labelPosition = 'top',
     value,
@@ -79,11 +79,12 @@ export const Input = memo(({
                 <div className={classes.root}>
                     <input
                         readOnly={readOnly}
-                        disabled={disabled}
+                        disabled={disabled || readOnly}
                         name="text_input"
                         type={isFieldOpen ? 'text' : 'password'}
                         className={classNames(classes.input, {
                             [classes.clear]: view === 'clear',
+                            [classes.disabled]: disabled,
                             [classes.rootError]: !!error,
                             [classes.readOnly]: readOnly,
                         })}
@@ -120,7 +121,14 @@ export const Input = memo(({
                     )}
                 </div>
             </label>
-            {error && <span className={classes.error}>{error}</span>}
+            {error && !readOnly && (
+                <span className={classNames(classes.error, {
+                    [classes.topLabel]: labelPosition === 'top',
+                })}
+                >
+                    {error}
+                </span>
+            )}
         </div>
     );
 });

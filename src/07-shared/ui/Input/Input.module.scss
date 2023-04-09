@@ -19,6 +19,7 @@
             align-items: start;
 
             .text {
+                width: auto;
                 align-self: start;
                 font-size: var(--font-size-s);
                 line-height: var(--font-line-s);
@@ -75,10 +76,14 @@
                     border-color: var(--input-focus);
                 }
 
-                &:disabled {
+                &.disabled {
                     cursor: not-allowed;
                     color: var(--input-disabled-text);
                     border-color: var(--input-disabled);
+
+                    &:hover {
+                        border-color: var(--input-disabled);
+                    }
                 }
             }
         }
@@ -115,5 +120,10 @@
         font-size: var(--font-size-s);
         color: var(--input-error);
         line-height: 14px;
+        margin-left: 100px;
+
+        &.topLabel {
+            margin-left: 0;
+        }
     }
 }

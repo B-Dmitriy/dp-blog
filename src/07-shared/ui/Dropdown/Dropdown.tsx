@@ -1,7 +1,7 @@
-import { classNames } from '07-shared/lib/classNames/classNames';
 import {
-    memo, MutableRefObject, PropsWithChildren, useEffect, useRef, useState,
+    memo, MutableRefObject, PropsWithChildren, useRef, useState,
 } from 'react';
+import { classNames } from '07-shared/lib/classNames/classNames';
 import classes from './Dropdown.module.scss';
 
 type DropdownItem = { label: string; value: string; };

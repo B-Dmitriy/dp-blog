@@ -30,7 +30,6 @@ module.exports = {
         'no-shadow': 'off',
         'no-param-reassign': 'off',
         indent: [2, 4],
-        'no-unused-vars': 'warn',
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -47,6 +46,11 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-noninteractive-element-interactions': 'off',
         'no-underscore-dangle': 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['error', {
+            varsIgnorePattern: '^_',
+            argsIgnorePattern: '^_',
+        }],
         // 'i18next/no-literal-string': ['error', {
         //     markupOnly: true,
         //     //Перечисляем ВСЕ!!! атрибуты которые будем игнорировать

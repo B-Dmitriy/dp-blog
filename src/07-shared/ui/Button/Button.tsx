@@ -24,6 +24,7 @@ export const Button = memo(({
     ...otherProps
 }: ButtonProps) => (
     <button
+        disabled={disabled}
         type="button"
         data-testid="button_test_id"
         className={classNames(classes.Button, {

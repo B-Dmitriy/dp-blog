@@ -4,14 +4,18 @@ import { useCurrencyList } from '../lib/useCurrencyList';
 import { Currency } from '../types/currency.types';
 
 interface CurrencyProps {
+    disabled?: boolean;
+    readOnly?: boolean;
     value: Currency;
     label?: string;
     labelPosition?: 'top' | 'left';
-    onSelect: (newValue: Currency) => void;
+    onSelect?: (newValue: Currency) => void;
     className?: string;
 }
 
 export const CurrencySelect = memo(({
+    disabled = false,
+    readOnly = false,
     value,
     label,
     labelPosition = 'top',
@@ -20,11 +24,15 @@ export const CurrencySelect = memo(({
 }: CurrencyProps) => {
     const currencyList = useCurrencyList();
     const onSelectHandler = useCallback((newValue: string) => {
-        onSelect(newValue as Currency);
+        if (onSelect) {
+            onSelect(newValue as Currency);
+        }
     }, []);
 
     return (
         <Select
+            disabled={disabled}
+            readOnly={readOnly}
             value={value}
             label={label}
             labelPosition={labelPosition}

@@ -29,6 +29,7 @@
             cursor: not-allowed;
             color: var(--gray);
             background-color: var(--button-primary-disable);
+            pointer-events: none;
         }
     }
 

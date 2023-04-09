@@ -12,9 +12,15 @@ export interface Profile {
     avatar: string;
 }
 
+export type ProfileFormValidateErrors = Partial<Record<keyof Profile, string>> & {
+    server_error?: string;
+};
+
 export interface ProfileSliceState {
     isLoading: boolean;
+    isValidateLoading: boolean;
     profile: Profile | null;
     profileForm: Profile;
+    profileFormErrors: ProfileFormValidateErrors;
     error: string;
 }

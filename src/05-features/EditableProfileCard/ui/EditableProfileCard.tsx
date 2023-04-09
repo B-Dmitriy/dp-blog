@@ -5,11 +5,13 @@ import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
 import { Text } from '07-shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { updateProfile } from '05-features/EditableProfileCard/model/services/updateProfile/updateProfile';
+import { Country } from '06-entities/Country';
+import { Currency } from '06-entities/Currency';
 import { EditableProfileControls } from './EditableProfileControls/EditableProfileControls';
 import {
-    getProfileError,
-    getProfileFormInfo,
-    getProfileIsLoading,
+    getProfileError, getProfileFormErrors,
+    getProfileFormInfo, getProfileInfo,
+    getProfileIsLoading, getProfileValidateIsLoading,
 } from '../model/selectors/profileSelectors';
 import classes from './EditableProfileCard.module.scss';
 
@@ -21,9 +23,12 @@ export const EditableProfileCard = memo(({ className }: EditableProfileCardProps
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
 
-    const profile = useAppSelector(getProfileFormInfo);
+    const profile = useAppSelector(getProfileInfo);
+    const profileForm = useAppSelector(getProfileFormInfo);
     const isLoading = useAppSelector(getProfileIsLoading);
+    const isValidateLoading = useAppSelector(getProfileValidateIsLoading);
     const error = useAppSelector(getProfileError);
+    const formErrors = useAppSelector(getProfileFormErrors);
 
     const [readonlyMode, setReadonlyMode] = useState<boolean>(true);
 
@@ -59,14 +64,26 @@ export const EditableProfileCard = memo(({ className }: EditableProfileCardProps
         }
     }, []);
 
+    const onCountryChange = useCallback((value: Country) => {
+        dispatch(editableProfileActions.onCountryChange(value));
+    }, []);
+
+    const onCurrencyChange = useCallback((value: Currency) => {
+        dispatch(editableProfileActions.onCurrencyChange(value));
+    }, []);
+
     const onCancel = useCallback(() => {
         dispatch(editableProfileActions.resetForm());
         setReadonlyMode(true);
     }, []);
 
     const onSubmit = useCallback(() => {
-        dispatch(updateProfile());
         setReadonlyMode(true);
+        dispatch(updateProfile()).then((res) => {
+            if (res.meta.requestStatus === 'rejected') {
+                setReadonlyMode(false);
+            }
+        });
     }, []);
 
     return (
@@ -79,17 +96,21 @@ export const EditableProfileCard = memo(({ className }: EditableProfileCardProps
             </Text>
             <main className={classes.content}>
                 <EditableProfileControls
+                    disabled={!profile}
                     isLoading={isLoading}
-                    avatar={profile?.avatar}
+                    avatar={profileForm?.avatar}
                     readonlyMode={readonlyMode}
                     onCancel={onCancel}
                     onSubmit={onSubmit}
                     toggleReadonlyMode={toggleReadonlyMode}
                 />
                 <ProfileCard
-                    profile={profile}
+                    profile={profileForm}
                     isLoading={isLoading}
+                    isValidateLoading={isValidateLoading}
+                    isAuth={!!profile}
                     error={error}
+                    formErrors={formErrors}
                     readonlyMode={readonlyMode}
                     onUsernameChange={onUsernameChange}
                     onFirstnameChange={onFirstnameChange}
@@ -97,6 +118,8 @@ export const EditableProfileCard = memo(({ className }: EditableProfileCardProps
                     onCityChange={onCityChange}
                     onAgeChange={onAgeChange}
                     onAvatarChange={onAvatarChange}
+                    onCountryChange={onCountryChange}
+                    onCurrencyChange={onCurrencyChange}
                 />
             </main>
         </div>
