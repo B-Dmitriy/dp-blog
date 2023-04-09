@@ -44,6 +44,16 @@
                 align-items: center;
                 justify-content: space-between;
 
+                &.errorValue {
+                    border-color: var(--input-error);
+                }
+
+                &.readOnly {
+                    background-color: transparent;
+                    border: none;
+                    pointer-events: none;
+                }
+
                 .title {
                     width: calc(100% - 20px);
                 }
@@ -88,22 +98,15 @@
                     opacity: 1;
                     pointer-events: auto;
                 }
-
-                .listItem {
-                    cursor: default;
-                    list-style-type: none;
-                    color: var(--text-color);
-                    padding: 4px;
-                    background-color: transparent;
-                    border: none;
-                    width: 100%;
-                    text-align: start;
-
-                    &:hover {
-                        background-color: var(--dropdown-item-hover);
-                    }
-                }
             }
+        }
+
+        .error {
+            position: absolute;
+            font-size: var(--font-size-s);
+            color: var(--input-error);
+            padding-left: 4px;
+            line-height: 14px;
         }
     }
 }

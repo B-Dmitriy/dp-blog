@@ -1,0 +1,14 @@
+.SelectItem {
+    cursor: default;
+    list-style-type: none;
+    color: var(--text-color);
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    text-align: start;
+
+    &:hover {
+        background-color: var(--dropdown-item-hover);
+    }
+}

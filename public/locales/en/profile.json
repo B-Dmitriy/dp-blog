@@ -10,5 +10,10 @@
   "city": "City: ",
   "country": "Country: ",
   "currency": "Currency: ",
-  "avatar": "Avatar: "
+  "avatar": "Avatar: ",
+  "errors": {
+    "required": "Required field",
+    "not_zero": "Age cannot be zero",
+    "not_authorized": "User not authorized"
+  }
 }

@@ -1,23 +1,29 @@
 import {
     memo, MutableRefObject, useEffect, useRef, useState,
 } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
 import { classNames } from '07-shared/lib/classNames/classNames';
+import { SelectItem } from '07-shared/ui/Select/SelectItem/SelectItem';
 import ArrowDown from '../../assets/icons/arrow-down.svg';
 import classes from './Select.module.scss';
 
 interface SelectProps {
+    disabled?: boolean;
+    readOnly?: boolean;
     value: string;
     options: string[];
+    error?: string | null | undefined;
     label?: string;
     labelPosition?: 'top' | 'left';
-    onSelect: (item: string) => void;
+    onSelect?: (item: string) => void;
     className?: string;
 }
 
 export const Select = memo(({
+    disabled = false,
+    readOnly = false,
     value,
     options,
+    error,
     label,
     labelPosition = 'top',
     onSelect,
@@ -31,6 +37,8 @@ export const Select = memo(({
     const onValueClick = () => {
         setIsOpen((prev) => !prev);
     };
+
+    const setIsClose = () => setIsOpen(false);
 
     const closeHandler = () => {
         setIsClosing(true);
@@ -65,15 +73,18 @@ export const Select = memo(({
                 {label && <span className={classes.text}>{label}</span>}
                 <div className={classes.root}>
                     <button
+                        disabled={readOnly || disabled}
                         type="button"
                         name="select_button"
                         className={classNames(classes.value, {
                             [classes.open]: isOpen,
+                            [classes.readOnly]: readOnly,
+                            [classes.errorValue]: !!error,
                         })}
                         onClick={onValueClick}
                     >
                         <span className={classes.title}>{value}</span>
-                        <ArrowDown />
+                        {!readOnly && <ArrowDown />}
                     </button>
                     <div
                         ref={listRef}
@@ -83,21 +94,23 @@ export const Select = memo(({
                         })}
                     >
                         {options.map((item) => (
-                            <button
-                                disabled={!isOpen}
-                                key={nanoid()}
-                                type="button"
-                                tabIndex={0}
-                                className={classes.listItem}
-                                onClick={() => {
-                                    onSelect(item);
-                                    setIsOpen(false);
-                                }}
-                            >
-                                {item}
-                            </button>
+                            <SelectItem
+                                key={item}
+                                item={item}
+                                isOpen={isOpen}
+                                setIsClose={setIsClose}
+                                onSelect={onSelect}
+                            />
                         ))}
                     </div>
+                    {error && !readOnly && (
+                        <span className={classNames(classes.error, {
+                            [classes.topLabel]: labelPosition === 'top',
+                        })}
+                        >
+                            {error}
+                        </span>
+                    )}
                 </div>
             </label>
         </div>

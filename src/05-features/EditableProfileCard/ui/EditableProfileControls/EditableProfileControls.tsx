@@ -8,6 +8,7 @@ import { Avatar } from '07-shared/ui/Avatar/Avatar';
 import classes from './EditableProfileControls.module.scss';
 
 interface EditableProfileHeaderProps {
+    disabled?: boolean;
     isLoading?: boolean;
     avatar: string | undefined | null;
     readonlyMode: boolean;
@@ -18,6 +19,7 @@ interface EditableProfileHeaderProps {
 }
 
 export const EditableProfileControls = memo(({
+    disabled = false,
     isLoading = false,
     avatar,
     readonlyMode,
@@ -38,7 +40,7 @@ export const EditableProfileControls = memo(({
                 {readonlyMode
                     ? (
                         <Button
-                            disabled={isLoading}
+                            disabled={isLoading || disabled}
                             className={classes.editBtn}
                             view="secondary"
                             onClick={toggleReadonlyMode}
@@ -50,7 +52,7 @@ export const EditableProfileControls = memo(({
                     : (
                         <>
                             <Button
-                                disabled={isLoading}
+                                disabled={isLoading || disabled}
                                 className={classes.cancelBtn}
                                 view="outline"
                                 onClick={onCancel}
@@ -58,7 +60,7 @@ export const EditableProfileControls = memo(({
                                 {t('cancel')}
                             </Button>
                             <Button
-                                disabled={isLoading}
+                                disabled={isLoading || disabled}
                                 view="primary"
                                 onClick={onSubmit}
                             >

@@ -4,14 +4,18 @@ import { Select } from '07-shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
 
 interface CountrySelectorProps {
+    disabled?: boolean;
+    readOnly?: boolean;
     value: Country;
     label?: string;
     labelPosition?: 'top' | 'left';
-    onSelect: (newValue: Country) => void;
+    onSelect?: (newValue: Country) => void;
     className?: string;
 }
 
 export const CountrySelect = memo(({
+    disabled = false,
+    readOnly = false,
     value,
     label,
     labelPosition = 'top',
@@ -21,11 +25,15 @@ export const CountrySelect = memo(({
     const countries = useCountryList();
 
     const onSelectHandler = useCallback((newValue: string) => {
-        onSelect(newValue as Country);
+        if (onSelect) {
+            onSelect(newValue as Country);
+        }
     }, []);
 
     return (
         <Select
+            disabled={disabled}
+            readOnly={readOnly}
             value={value}
             label={label}
             labelPosition={labelPosition}
