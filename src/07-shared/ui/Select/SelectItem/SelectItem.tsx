@@ -19,6 +19,7 @@ export const SelectItem = memo(({
     className,
 }: SelectItemProps) => (
     <button
+        data-testid="select_item"
         className={classNames(classes.SelectItem, {}, [className])}
         disabled={!isOpen}
         key={nanoid()}

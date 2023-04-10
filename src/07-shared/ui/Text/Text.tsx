@@ -22,7 +22,10 @@ export const Text = memo(({
     switch (view) {
     case 'header':
         return (
-            <h2 className={classNames(classes.Text, mods, [className])}>
+            <h2
+                data-testid="text_header_testid"
+                className={classNames(classes.Text, mods, [className])}
+            >
                 {children}
             </h2>
         );
@@ -30,7 +33,10 @@ export const Text = memo(({
     case 'paragraph':
     default:
         return (
-            <p className={classNames(classes.Text, mods, [className])}>
+            <p
+                data-testid="text_paragraph_testid"
+                className={classNames(classes.Text, mods, [className])}
+            >
                 {children}
             </p>
         );
