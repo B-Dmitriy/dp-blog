@@ -1,4 +1,5 @@
 .Text {
+    color: var(--text-color);
     padding: 0;
     margin: 0;
 
@@ -8,7 +9,6 @@
 
     &.paragraph {
         font-size: var(--font-size-m);
-        padding: 0 4px;
     }
 
     &.error {

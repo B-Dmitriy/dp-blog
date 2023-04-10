@@ -1,5 +1,5 @@
 import {
-    memo, MutableRefObject, useEffect, useRef, useState,
+    memo, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from '07-shared/lib/classNames/classNames';
 import { SelectItem } from '07-shared/ui/Select/SelectItem/SelectItem';
@@ -30,9 +30,7 @@ export const Select = memo(({
     className,
 }: SelectProps) => {
     const listRef = useRef<HTMLDivElement | null>(null);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [isClosing, setIsClosing] = useState<boolean>(false);
 
     const onValueClick = () => {
         setIsOpen((prev) => !prev);
@@ -40,31 +38,26 @@ export const Select = memo(({
 
     const setIsClose = () => setIsOpen(false);
 
-    const closeHandler = () => {
-        setIsClosing(true);
-        timerRef.current = setTimeout(() => {
-            setIsOpen(false);
-            setIsClosing(false);
-        }, 150);
-    };
-
     useEffect(() => {
         const clickListener = (e: MouseEvent) => {
             if (isOpen && !listRef?.current?.contains(e.target as Node)) {
-                closeHandler();
+                setIsClose();
             }
         };
         document.body.addEventListener('click', clickListener);
 
         return () => {
-            clearTimeout(timerRef.current);
             document.body.removeEventListener('click', clickListener);
         };
     }, [isOpen]);
 
     return (
-        <div className={classNames(classes.Select, {}, [className])}>
+        <div
+            data-testid="select_wrapper"
+            className={classNames(classes.Select, {}, [className])}
+        >
             <label
+                data-testid="select_label"
                 className={classNames(classes.label, {
                     [classes.topLabel]: labelPosition === 'top',
                 })}
@@ -73,6 +66,7 @@ export const Select = memo(({
                 {label && <span className={classes.text}>{label}</span>}
                 <div className={classes.root}>
                     <button
+                        data-testid="select_button"
                         disabled={readOnly || disabled}
                         type="button"
                         name="select_button"
@@ -83,18 +77,25 @@ export const Select = memo(({
                         })}
                         onClick={onValueClick}
                     >
-                        <span className={classes.title}>{value}</span>
+                        <span
+                            data-testid="select_title"
+                            className={classes.title}
+                        >
+                            {value}
+                        </span>
                         {!readOnly && <ArrowDown />}
                     </button>
                     <div
                         ref={listRef}
+                        data-testid="select_list"
                         className={classNames(classes.list, {
                             [classes.open]: isOpen,
-                            [classes.closes]: isClosing,
+                            // [classes.closes]: isClosing,
                         })}
                     >
                         {options.map((item) => (
                             <SelectItem
+                                data-testid={`select_${item}`}
                                 key={item}
                                 item={item}
                                 isOpen={isOpen}
@@ -104,9 +105,11 @@ export const Select = memo(({
                         ))}
                     </div>
                     {error && !readOnly && (
-                        <span className={classNames(classes.error, {
-                            [classes.topLabel]: labelPosition === 'top',
-                        })}
+                        <span
+                            data-testid="select_error"
+                            className={classNames(classes.error, {
+                                [classes.topLabel]: labelPosition === 'top',
+                            })}
                         >
                             {error}
                         </span>
