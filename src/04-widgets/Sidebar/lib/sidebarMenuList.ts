@@ -12,6 +12,7 @@ export const sidebarMenuList: SidebarMenuList = [
         path: '/profile',
         titleKey: 'profile',
         Icon: ProfileIcon,
+        authOnly: true,
     }, {
         path: '/about',
         titleKey: 'about',
