@@ -78,6 +78,7 @@ export const Input = memo(({
                 {label && <span className={classes.text}>{label}</span>}
                 <div className={classes.root}>
                     <input
+                        data-testid="text_input_id"
                         readOnly={readOnly}
                         disabled={disabled || readOnly}
                         name="text_input"
@@ -101,8 +102,16 @@ export const Input = memo(({
                             className={classNames(classes.modification, {}, [classes.activeIcon])}
                         >
                             {isFieldOpen
-                                ? <EyeOpen onClick={toggleIsFieldOpen} />
-                                : <EyeClose onClick={toggleIsFieldOpen} />}
+                                ? (
+                                    <EyeOpen
+                                        onClick={toggleIsFieldOpen}
+                                    />
+                                )
+                                : (
+                                    <EyeClose
+                                        onClick={toggleIsFieldOpen}
+                                    />
+                                )}
                         </span>
                     )}
                     {modification === 'cleaner' && (
@@ -114,6 +123,7 @@ export const Input = memo(({
                     )}
                     {modification === 'counter' && (
                         <span
+                            data-testid="input_counter"
                             className={classNames(classes.modification, {}, [classes.counter])}
                         >
                             {maxLength && `${STRING_LENGTH}/${maxLength}`}
@@ -122,9 +132,11 @@ export const Input = memo(({
                 </div>
             </label>
             {error && !readOnly && (
-                <span className={classNames(classes.error, {
-                    [classes.topLabel]: labelPosition === 'top',
-                })}
+                <span
+                    data-testid="input_error_block"
+                    className={classNames(classes.error, {
+                        [classes.topLabel]: labelPosition === 'top',
+                    })}
                 >
                     {error}
                 </span>
