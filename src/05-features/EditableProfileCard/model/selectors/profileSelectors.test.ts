@@ -48,23 +48,23 @@ describe('profileSelectors test', () => {
         const result = getProfileError(editableProfileState as RootState);
         expect(result).toBe('error');
     });
-    it('should be return isLoading undefined', () => {
+    it('should be return error null', () => {
         const result = getProfileError({} as RootState);
-        expect(result).toBeUndefined();
+        expect(result).toBeNull();
     });
-    it('should be return validate error', () => {
+    it('should be return FormErrors', () => {
         const result = getProfileFormErrors(editableProfileState as RootState);
         expect(result).toEqual(profileFormErrors);
     });
-    it('should be return isLoading undefined', () => {
+    it('should be return FormErrors empty object', () => {
         const result = getProfileFormErrors({} as RootState);
-        expect(result).toBeUndefined();
+        expect(result).toEqual({});
     });
     it('should be return validate loading', () => {
         const result = getProfileValidateIsLoading(editableProfileState as RootState);
         expect(result).toBeTruthy();
     });
-    it('should be return isLoading false', () => {
+    it('should be return validate loading false', () => {
         const result = getProfileValidateIsLoading({} as RootState);
         expect(result).toBeFalsy();
     });
@@ -72,16 +72,16 @@ describe('profileSelectors test', () => {
         const result = getProfileInfo(editableProfileState as RootState);
         expect(result).toEqual(profile);
     });
-    it('should be return profile undefined', () => {
+    it('should be return profile null', () => {
         const result = getProfileInfo({} as RootState);
-        expect(result).toBeUndefined();
+        expect(result).toBeNull();
     });
     it('should be return profileForm', () => {
         const result = getProfileFormInfo(editableProfileState as RootState);
         expect(result).toEqual(profileForm);
     });
-    it('should be return profileForm undefined', () => {
+    it('should be return profileForm null', () => {
         const result = getProfileFormInfo({} as RootState);
-        expect(result).toBeUndefined();
+        expect(result).toBeNull();
     });
 });
