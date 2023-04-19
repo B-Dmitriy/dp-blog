@@ -17,6 +17,8 @@ export function buildWebpackConfig(options: BuildOptionsTypes): webpack.Configur
             assetModuleFilename: 'static/[hash][ext][query]',
             // Очищать папку с билом перед новой сборкой
             clean: true,
+            // Необходимо для корректной работы с вложеными путями React-router-dom 6
+            publicPath: '/',
         },
         plugins: buildWebpackPlugins(options),
         module: {

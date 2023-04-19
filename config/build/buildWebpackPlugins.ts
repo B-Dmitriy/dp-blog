@@ -6,7 +6,9 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import type { BuildOptionsTypes } from './types/build.types';
 
 export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.WebpackPluginInstance[] {
-    const { paths, isDev, baseUrl } = options;
+    const {
+        paths, isDev, baseUrl, project,
+    } = options;
 
     const plugins = [
         // Плагин показываюший состояние сборки
@@ -27,8 +29,9 @@ export function buildWebpackPlugins(options: BuildOptionsTypes): webpack.Webpack
         // к которым можно обращаться из кода, для работы с TS их так же
         // нужно объявить в global.d.ts
         new webpack.DefinePlugin({
-            IS_DEV: isDev,
+            __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(baseUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 

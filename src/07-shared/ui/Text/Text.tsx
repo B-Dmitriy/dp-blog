@@ -4,13 +4,28 @@ import classes from './Text.module.scss';
 
 type TextType = 'header' | 'paragraph' | 'error';
 
+export enum TextAlign {
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center',
+}
+
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l',
+}
+
 interface TextProps {
     className?: string;
     view?: TextType;
+    align?: TextAlign;
+    size?: TextSize;
 }
 
 export const Text = memo(({
     className,
+    align = TextAlign.LEFT,
+    size = TextSize.M,
     view = 'paragraph',
     children,
 }: PropsWithChildren<TextProps>) => {
@@ -18,6 +33,8 @@ export const Text = memo(({
         [classes.error]: view === 'error',
         [classes.paragraph]: view === 'paragraph',
         [classes.header]: view === 'header',
+        [classes[align]]: true,
+        [classes[size]]: true,
     };
     switch (view) {
     case 'header':

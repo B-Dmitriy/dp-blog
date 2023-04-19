@@ -27,7 +27,7 @@ export function createReduxStore(
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<RootState>>,
-        devTools: IS_DEV,
+        devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
