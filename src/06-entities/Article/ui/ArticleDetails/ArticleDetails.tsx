@@ -9,7 +9,7 @@ import NewsImage from '07-shared/assets/images/news.png';
 import { Skeleton } from '07-shared/ui/Skeleton/Skeleton';
 import CalendarIcon from '07-shared/assets/icons/calendar.svg';
 import { classNames } from '07-shared/lib/classNames/classNames';
-import { Text, TextAlign, TextSize } from '07-shared/ui/Text/Text';
+import { Text } from '07-shared/ui/Text/Text';
 import { useAppDispatch, useAppSelector } from '07-shared/lib/hooks/app';
 import { ReducerList, AsyncReducerLoader } from '07-shared/lib/components/AsyncReducerLoader/AsyncReducerLoader';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -94,7 +94,7 @@ export const ArticleDetails = memo(({
     } else if (error) {
         content = (
             <Text
-                align={TextAlign.CENTER}
+                align="center"
             >
                 {t('Произошла ошибка при загрузке статьи.')}
             </Text>
@@ -113,14 +113,12 @@ export const ArticleDetails = memo(({
                 <Text
                     className={classes.title}
                     view="header"
-                    size={TextSize.L}
                 >
                     {article?.title}
                 </Text>
                 <Text
                     className={classes.title}
                     view="paragraph"
-                    size={TextSize.L}
                 >
                     {article?.subtitle}
                 </Text>
