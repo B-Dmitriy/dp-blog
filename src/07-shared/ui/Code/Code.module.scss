@@ -1,9 +1,11 @@
 .Code {
-    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--divider);
     padding: 20px;
     position: relative;
-    background: var(--code-bg);
+    background: var(--bg-color-mute);
     overflow: auto;
+    border-radius: 4px;
 }
 
 .copyBtn {
@@ -13,5 +15,5 @@
 }
 
 .copyIcon path {
-    stroke: var(--primary-color);
+    fill: var(--primary-color);
 }

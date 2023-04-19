@@ -18,10 +18,15 @@
 .articleInfo {
     display: flex;
     align-items: center;
-}
+    margin-bottom: 4px;
 
-.icon {
-    margin-right: 8px;
+    .icon {
+        margin-right: 8px;
+
+        path {
+            fill: var(--text-color)
+        }
+    }
 }
 
 .avatarWrapper {

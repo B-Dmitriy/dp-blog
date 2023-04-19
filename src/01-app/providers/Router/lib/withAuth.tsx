@@ -8,7 +8,6 @@ export const withAuth = (element: ReactNode) => {
     const user = useAppSelector(getUser);
     const location = useLocation();
 
-    console.log('Redirect', user);
     if (!user) {
         return <Navigate to={RoutePaths.main} state={{ from: location }} replace />;
     }

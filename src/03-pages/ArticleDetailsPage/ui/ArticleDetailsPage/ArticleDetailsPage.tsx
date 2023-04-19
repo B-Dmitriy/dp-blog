@@ -18,7 +18,7 @@ const ArticleDetailsPage = memo(({
     if (!id) {
         return (
             <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
+                {t('article_not_found')}
             </div>
         );
     }
