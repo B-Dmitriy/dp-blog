@@ -12,7 +12,7 @@ i18n
     // Язык по умолчанию. Если указать массив ['en', 'ru'] прилетят чанки сразу для 2 языков
     // false - не подгружать язык по умолчанию, только активный
         fallbackLng: false,
-        debug: IS_DEV,
+        debug: __IS_DEV__,
 
         interpolation: {
             escapeValue: false,

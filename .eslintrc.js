@@ -59,7 +59,8 @@ module.exports = {
     },
     // Блок определяющий глобальные переменные
     globals: {
-        IS_DEV: true,
+        __IS_DEV__: true,
         __API__: true,
+        __PROJECT__: true,
     },
 };

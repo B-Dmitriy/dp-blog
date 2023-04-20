@@ -1,4 +1,4 @@
-import { AsyncReducerLoader, ReducerList } from './AsynReducerLoader/AsyncReducerLoader';
+import { AsyncReducerLoader, ReducerList } from './AsyncReducerLoader/AsyncReducerLoader';
 import { ErrorBoundary } from './ErrorBoundary';
 import { Portal } from './Portal/Portal';
 import { Theme, ThemeProvider, useTheme } from './ThemeProvider';
