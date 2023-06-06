@@ -5,6 +5,7 @@ import {
 import { To } from 'history';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router';
+import type { ArticleDetailsCommentsState } from '03-pages/ArticleDetailsPage';
 import type { AuthInitialState } from '05-features/Auth';
 import type { UserInitialState } from '06-entities/User';
 import type { ProfileSliceState } from '06-entities/Profile';
@@ -21,6 +22,7 @@ export interface RootState {
     auth?: AuthInitialState,
     editableProfile?: ProfileSliceState,
     articleDetails?: ArticleState;
+    articleDetailsComments?: ArticleDetailsCommentsState;
 }
 
 export interface ReduxProviderProps {
